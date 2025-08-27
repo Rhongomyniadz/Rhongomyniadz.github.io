@@ -1,13 +1,264 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Hi 👋</title>
-    <style>body{font-family:system-ui;margin:2rem;max-width:60ch;}</style>
-  </head>
-  <body>
-    <h1>Welcome</h1>
-    <p>This site is hosted with GitHub Pages.</p>
-  </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Zichen Zhang — Portfolio & Resume</title>
+  <meta name="description" content="Zichen Zhang (Eden) — MS CS&E (SUGS) at University of Michigan. AI/ML, Computer Vision, NLP, and Systems." />
+  <meta property="og:title" content="Zichen Zhang — Portfolio & Resume" />
+  <meta property="og:description" content="MS CS&E (SUGS) at UMich. AI/ML · CV · NLP." />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://YOUR_GITHUB_USERNAME.github.io" />
+  <meta property="og:image" content="https://YOUR_GITHUB_USERNAME.github.io/og-card.png" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23005cff'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='54' font-family='Arial' fill='white'%3EZ%3C/text%3E%3C/svg%3E" />
+  <style>
+    :root{
+      --bg:#0b0c10; --fg:#e8f0fe; --ink:#101217; --paper:#ffffff; --brand:#005cff; --muted:#9aa4b2; --card:#14161b; --shadow: 0 10px 30px rgba(0,0,0,.25);
+      --radius: 18px; --radius-lg: 26px; --w: min(980px, 92vw);
+    }
+    @media (prefers-color-scheme: light){ :root{ --bg:#f5f7fb; --fg:#0b0c10; --ink:#0b0c10; --paper:#ffffff; --card:#ffffff; --muted:#5b6675; } }
+    [data-theme="light"]{ --bg:#f5f7fb; --fg:#0b0c10; --ink:#0b0c10; --paper:#ffffff; --card:#ffffff; --muted:#5b6675; }
+    [data-theme="dark"]{ --bg:#0b0c10; --fg:#e8f0fe; --ink:#101217; --paper:#111216; --card:#14161b; --muted:#9aa4b2; }
+    html,body{margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--fg);}
+    a{color:var(--brand); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{width:var(--w); margin:36px auto 80px;}
+    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:22px}
+    .chip{display:inline-flex; align-items:center; gap:8px; background:var(--card); color:var(--fg); padding:10px 14px; border-radius:999px; box-shadow: var(--shadow);}
+    .chip img{width:32px; height:32px; border-radius:50%; object-fit:cover}
+    .ctrls{display:flex; gap:10px; align-items:center}
+    button, .btn{border:0; background:var(--brand); color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; box-shadow: var(--shadow);}
+    button.ghost{background:transparent; color:var(--fg); border:1px solid rgba(127,137,151,.3)}
+    .card{background:var(--card); border:1px solid rgba(127,137,151,.18); border-radius:var(--radius-lg); padding:22px; margin:16px 0; box-shadow: var(--shadow)}
+    h1{font-size:34px; line-height:1.1; margin:10px 0}
+    h2{font-size:22px; margin:0 0 14px 0}
+    h3{font-size:17px; margin:10px 0 4px}
+    p{margin:6px 0; color:var(--fg)}
+    .muted{color:var(--muted)}
+    .grid{display:grid; grid-template-columns:1fr; gap:16px}
+    @media(min-width:900px){ .grid{ grid-template-columns: 2fr 1fr; } }
+    ul{margin:10px 0 0 22px}
+    li{margin:6px 0}
+    nav{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 0}
+    nav a{background:transparent; border:1px solid rgba(127,137,151,.3); padding:8px 12px; border-radius:10px}
+    .tag{display:inline-block; border:1px solid rgba(127,137,151,.25); padding:6px 10px; border-radius:999px; margin:4px 6px 0 0; font-size:13px; color:var(--muted)}
+    .two-col{display:grid; grid-template-columns:1fr; gap:12px}
+    @media(min-width:680px){ .two-col{ grid-template-columns:1fr 1fr; }}
+    .footer{margin-top:28px; text-align:center; color:var(--muted); font-size:14px}
+    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.08)); border:1px solid rgba(127,137,151,.18); border-radius: 12px}
+    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
+    .item{padding:12px 0; border-top: 1px dashed rgba(127,137,151,.25)}
+    .item:first-child{border-top:0}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
+    .small{font-size:13px}
+    /* print */
+    @media print{ header, .footer, .ctrls, nav{display:none} .card{box-shadow:none; border-color:#ddd} body{background:#fff; color:#000} a{color:#000} }
+  </style>
+  <script>
+    // Theme toggle persistence
+    const THEME_KEY = 'zz-theme';
+    function setTheme(t){ document.documentElement.setAttribute('data-theme', t); localStorage.setItem(THEME_KEY, t); }
+    function toggleTheme(){ const t = localStorage.getItem(THEME_KEY) || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light'); setTheme(t==='dark'?'light':'dark'); }
+    document.addEventListener('DOMContentLoaded',()=>{
+      const t = localStorage.getItem(THEME_KEY);
+      if(t) setTheme(t);
+    });
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Zichen Zhang",
+    "alternateName": ["Eden Zhang"],
+    "affiliation": {"@type":"CollegeOrUniversity","name":"University of Michigan"},
+    "alumniOf": [{"@type":"CollegeOrUniversity","name":"University of Michigan"},{"@type":"CollegeOrUniversity","name":"University of California, Santa Barbara"}],
+    "url": "https://YOUR_GITHUB_USERNAME.github.io",
+    "sameAs": [
+      "https://github.com/YOUR_GITHUB_USERNAME",
+      "https://www.linkedin.com/in/YOUR_LINKEDIN/"
+    ],
+    "knowsAbout": ["Computer Vision","Natural Language Processing","Machine Learning","Information Retrieval","LLMs"],
+    "email": "mailto:YOUR_EMAIL@example.com"
+  }
+  </script>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="chip" title="Zichen Zhang (Eden)">
+        <img alt="avatar" src="https://avatars.githubusercontent.com/u/00000000?v=4" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 100 100\'%3E%3Crect width=\'100\' height=\'100\' rx=\'18\' fill=\'%23005cff\'/%3E%3Ctext x=\'50\' y=\'58\' text-anchor=\'middle\' font-size=\'54\' font-family=\'Arial\' fill=\'white\'\'>Z%3C/text%3E%3C/svg%3E'"/>
+        <div>
+          <strong style="font-size:16px">Zichen Zhang</strong>
+          <div class="muted small">MS CS&E (SUGS) @ UMich — AI/ML · CV · NLP</div>
+        </div>
+      </div>
+      <div class="ctrls">
+        <a class="btn" href="#contact">Contact</a>
+        <button class="ghost" onclick="toggleTheme()" title="Toggle theme">Toggle theme</button>
+        <button class="ghost" onclick="window.print()" title="Print / Save as PDF">Print</button>
+      </div>
+    </header>
+
+    <div class="card">
+      <h1>Hi, I’m Zichen — I build AI systems that learn from text, images, and people.</h1>
+      <p class="muted">Focused on representation learning, retrieval-augmented systems, and task‑adaptive perception. I like tidy experiments, fast feedback cycles, and clear write‑ups.</p>
+      <nav>
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#education">Education</a>
+        <a href="#skills">Skills</a>
+        <a href="#awards">Awards</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+
+    <div class="grid">
+      <!-- Main column -->
+      <main>
+        <section id="experience" class="card">
+          <h2>Experience</h2>
+          <div class="item">
+            <div class="row">
+              <h3>AI Research & Engineering — Selected Work</h3>
+              <span class="muted small">Ann Arbor, MI · 2023–2025</span>
+            </div>
+            <ul>
+              <li>Designed <strong>retrieval‑augmented pipelines</strong> with hybrid (dense + sparse) embeddings, efficient query decomposition, and evaluation harnesses.</li>
+              <li>Led a <strong>Faster R‑CNN object detection</strong> project: dataset tooling, anchors/RPN configuration, and training & ablation reporting.</li>
+              <li>Built LLM pipelines to <strong>model argumentative structure</strong> in podcasts (SPORC), including host‑turn filtering, assumption extraction, and t‑SNE analysis.</li>
+            </ul>
+          </div>
+          <div class="item">
+            <div class="row">
+              <h3>Industry Collaborations (selected)</h3>
+              <span class="muted small">2023–2025</span>
+            </div>
+            <ul>
+              <li>Trade Promotion Management (TPM) research for FMCG/seasoning industry; wrote templates/SOWs and ROI analysis artifacts.</li>
+              <li>Prototype <strong>AI chatbots and RAG systems</strong> for internal knowledge bases; GPU‑backed local inference and observability.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="projects" class="card">
+          <h2>Projects</h2>
+          <div class="item">
+            <div class="row">
+              <h3>Modeling Structure & Flow of Arguments in Podcast Discussions</h3>
+              <span class="muted small">2024–2025</span>
+            </div>
+            <p>LLM‑assisted pipeline using SPORC dataset for assumption extraction, host‑turn identification, and visualization. Includes reproducible scripts and evaluation.</p>
+            <div class="muted small mono">Python · vLLM · MiniLM · Matplotlib · JSON</div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <h3>Faster R‑CNN Object Detection</h3>
+              <span class="muted small">2024</span>
+            </div>
+            <p>Custom VOC dataset loader, anchor design, RPN training, and experiments with ResNet‑18 backbone + FPN‑style proposals.</p>
+            <div class="muted small mono">PyTorch · torchvision · VOC2007</div>
+          </div>
+          <div class="item">
+            <div class="row">
+              <h3>Hybrid RAG for Technical Corpora</h3>
+              <span class="muted small">2024–2025</span>
+            </div>
+            <p>Hybrid search combining TF‑IDF with dense embeddings; windowed chunking, reranking, and confidence‑aware responses.</p>
+            <div class="muted small mono">Chroma · SentenceTransformers · FAISS‑like · Flask</div>
+          </div>
+        </section>
+
+        <section id="education" class="card">
+          <h2>Education</h2>
+          <div class="item">
+            <div class="row">
+              <h3>University of Michigan — M.S. CS&E (SUGS)</h3>
+              <span class="muted small">Ann Arbor, MI · 2025 (expected)</span>
+            </div>
+            <p class="muted small">Focus: Computer Vision, Machine Learning, NLP. GPA: 3.93/4.0 (UMich).</p>
+          </div>
+          <div class="item">
+            <div class="row">
+              <h3>University of Michigan — B.S. Data Science & Computer Science</h3>
+              <span class="muted small">Ann Arbor, MI</span>
+            </div>
+            <p class="muted small">Transferred from UCSB (Statistics & Data Science).</p>
+          </div>
+        </section>
+
+        <section id="awards" class="card">
+          <h2>Awards & Mentions</h2>
+          <ul>
+            <li>Academic honors and competitive coursework in CV/ML/NLP (EECS 442/445/487/542/484/370/376).</li>
+            <li>Leadership roles in multi‑member research/engineering projects.</li>
+          </ul>
+        </section>
+      </main>
+
+      <!-- Side column -->
+      <aside>
+        <section class="card">
+          <h2>Quick Links</h2>
+          <div class="two-col">
+            <a class="pill" href="https://github.com/YOUR_GITHUB_USERNAME" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a class="pill" href="https://www.linkedin.com/in/YOUR_LINKEDIN/" target="_blank" rel="noreferrer">LinkedIn ↗</a>
+            <a class="pill" href="resume.pdf" target="_blank" rel="noreferrer">Resume (PDF) ↗</a>
+            <a class="pill" href="mailto:YOUR_EMAIL@example.com">Email me ✉</a>
+          </div>
+        </section>
+
+        <section id="skills" class="card">
+          <h2>Skills</h2>
+          <div>
+            <div class="muted small">Languages & Frameworks</div>
+            <div>
+              <span class="tag">Python</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">NumPy</span>
+              <span class="tag">Matplotlib</span>
+              <span class="tag">Flask</span>
+              <span class="tag">SQL</span>
+              <span class="tag">C/C++</span>
+            </div>
+            <div class="muted small" style="margin-top:10px">Areas</div>
+            <div>
+              <span class="tag">Computer Vision</span>
+              <span class="tag">NLP</span>
+              <span class="tag">LLMs / RAG</span>
+              <span class="tag">Retrieval</span>
+              <span class="tag">Clustering</span>
+              <span class="tag">Evaluation</span>
+            </div>
+            <div class="muted small" style="margin-top:10px">Tools</div>
+            <div>
+              <span class="tag">vLLM</span>
+              <span class="tag">SentenceTransformers</span>
+              <span class="tag">Chroma</span>
+              <span class="tag">Git</span>
+              <span class="tag">Linux</span>
+              <span class="tag">CUDA</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="card">
+          <h2>Selected Coursework</h2>
+          <p class="small">EECS 542 (Advanced CV), 442 (CV), 445 (ML), 487 (NLP/LLMs), 484 (DB), 370 (Computer Architecture), 376 (Theory)</p>
+        </section>
+
+        <section id="contact" class="card">
+          <h2>Contact</h2>
+          <p>Looking for research and engineering collaborations in AI/ML, especially CV/NLP and contextualized perception.</p>
+          <p class="mono small">✉ YOUR_EMAIL@example.com</p>
+          <p class="mono small">GitHub: github.com/YOUR_GITHUB_USERNAME</p>
+          <p class="mono small">LinkedIn: linkedin.com/in/YOUR_LINKEDIN</p>
+        </section>
+
+      </aside>
+    </div>
+
+    <div class="footer small">© <span id="y"></span> Zichen Zhang · Built with ♥ and GitHub Pages</div>
+  </div>
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
 </html>
