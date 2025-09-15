@@ -83,7 +83,6 @@
   <div class="wrap">
     <header>
       <div class="chip" title="Zichen Zhang (Eden)">
-        <img alt="avatar" src="./me.png"/>
         <div>
           <strong style="font-size:16px">Zichen Zhang</strong>
           <div class="muted small">MS CS&E (SUGS) @ UMich — AI/ML · CV · NLP</div>
@@ -95,7 +94,20 @@
         <button class="ghost" onclick="window.print()" title="Print / Save as PDF">Print</button>
       </div>
     </header>
-
+    <section id="profile-photo" class="hero card" aria-label="Portrait of Zichen Zhang">
+      <picture>
+        <!-- If you have a WebP version, list it first -->
+        <!-- <source srcset="photo.webp" type="image/webp" /> -->
+        <img
+          src="./me.jpg"
+          alt="Zichen Zhang"
+          loading="eager"
+          decoding="async"
+        />
+      </picture>
+      <!-- optional caption -->
+      <!-- <figcaption class="muted small" style="margin-top:8px">Zichen Zhang — Ann Arbor, MI</figcaption> -->
+    </section>
     <div class="grid">
       <!-- Main column -->
       <main>
