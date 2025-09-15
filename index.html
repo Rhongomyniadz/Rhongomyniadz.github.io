@@ -51,6 +51,28 @@
     .item:first-child{border-top:0}
     .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
     .small{font-size:13px}
+    .header-left{
+      display:flex;
+      align-items:center;
+      gap:16px;
+      flex-wrap:wrap;         /* allow wrapping on smaller screens */
+    }
+
+    /* Portrait next to header */
+    .profile-pic{
+      width: 120px;           /* desktop size */
+      height: 120px;
+      object-fit: cover;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow);
+      border:1px solid rgba(127,137,151,.18);
+    }
+
+    /* Stack on small screens, shrink photo slightly */
+    @media (max-width: 680px){
+      header{ flex-direction: column; align-items: flex-start; gap: 12px; }
+      .profile-pic{ width: 96px; height: 96px; }
+    }
     /* print */
     @media print{ header, .footer, .ctrls, nav{display:none} .card{box-shadow:none; border-color:#ddd} body{background:#fff; color:#000} a{color:#000} }
   </style>
@@ -81,8 +103,10 @@
 </head>
 <body>
   <div class="wrap">
-    <header>
+  <header>
+    <div class="header-left">
       <div class="chip" title="Zichen Zhang (Eden)">
+        <!-- no tiny avatar here -->
         <div>
           <strong style="font-size:16px">Zichen Zhang</strong>
           <div class="muted small">MS CS&E (SUGS) @ UMich — AI/ML · CV · NLP</div>
@@ -93,21 +117,12 @@
         <button class="ghost" onclick="toggleTheme()" title="Toggle theme">Toggle theme</button>
         <button class="ghost" onclick="window.print()" title="Print / Save as PDF">Print</button>
       </div>
-    </header>
-    <section id="profile-photo" class="hero card" aria-label="Portrait of Zichen Zhang">
-      <picture>
-        <!-- If you have a WebP version, list it first -->
-        <!-- <source srcset="photo.webp" type="image/webp" /> -->
-        <img
-          src="./me.png"
-          alt="Zichen Zhang"
-          loading="eager"
-          decoding="async"
-        />
-      </picture>
-      <!-- optional caption -->
-      <!-- <figcaption class="muted small" style="margin-top:8px">Zichen Zhang — Ann Arbor, MI</figcaption> -->
-    </section>
+    </div>
+
+    <!-- Your portrait next to the header -->
+    <img class="profile-pic" src="photo.jpg" alt="Portrait of Zichen Zhang" loading="eager" decoding="async" />
+  </header>
+
     <div class="grid">
       <!-- Main column -->
       <main>
