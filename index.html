@@ -1,266 +1,1136 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Zichen Zhang — Portfolio & Resume</title>
-  <meta name="description" content="Zichen Zhang (Eden) — MS CS&E (SUGS) at University of Michigan. AI/ML, Computer Vision, NLP, and Systems." />
-  <meta property="og:title" content="Zichen Zhang — Portfolio & Resume" />
-  <meta property="og:description" content="MS CS&E (SUGS) at UMich. AI/ML · CV · NLP." />
-  <meta property="og:type" content="website" />
-  
-  
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%23005cff'/%3E%3Ctext x='50' y='58' text-anchor='middle' font-size='54' font-family='Arial' fill='white'%3EZ%3C/text%3E%3C/svg%3E" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#eaf6ff">
+  <title>Zichen Zhang — Research & Engineering</title>
+  <meta name="description" content="Zichen Zhang (Eden) — researcher and engineer working across computational argumentation, embodied AI, and expressive interfaces.">
+  <meta property="og:title" content="Zichen Zhang — Research & Engineering">
+  <meta property="og:description" content="Computational argumentation · embodied AI · interface engineering">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23dff3ff'/%3E%3Cpath d='M19 28h62L34 73h47' fill='none' stroke='%231b4f79' stroke-width='11' stroke-linejoin='round'/%3E%3Ccircle cx='77' cy='24' r='8' fill='%23ff8066'/%3E%3C/svg%3E">
   <style>
-    :root{
-      --bg:#0b0c10; --fg:#e8f0fe; --ink:#101217; --paper:#ffffff; --brand:#005cff; --muted:#9aa4b2; --card:#14161b; --shadow: 0 10px 30px rgba(0,0,0,.25);
-      --radius: 18px; --radius-lg: 26px; --w: min(980px, 92vw);
-    }
-    @media (prefers-color-scheme: light){ :root{ --bg:#f5f7fb; --fg:#0b0c10; --ink:#0b0c10; --paper:#ffffff; --card:#ffffff; --muted:#5b6675; } }
-    [data-theme="light"]{ --bg:#f5f7fb; --fg:#0b0c10; --ink:#0b0c10; --paper:#ffffff; --card:#ffffff; --muted:#5b6675; }
-    [data-theme="dark"]{ --bg:#0b0c10; --fg:#e8f0fe; --ink:#101217; --paper:#111216; --card:#14161b; --muted:#9aa4b2; }
-    html,body{margin:0; padding:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Inter, "Noto Sans", Arial, "Apple Color Emoji", "Segoe UI Emoji"; background:var(--bg); color:var(--fg);}
-    a{color:var(--brand); text-decoration:none}
-    a:hover{text-decoration:underline}
-    .wrap{width:var(--w); margin:36px auto 80px;}
-    header{display:flex; align-items:center; justify-content:space-between; gap:16px; margin-bottom:22px}
-    .chip{display:inline-flex; align-items:center; gap:8px; background:var(--card); color:var(--fg); padding:10px 14px; border-radius:999px; box-shadow: var(--shadow);}
-    .chip img{width:32px; height:32px; border-radius:50%; object-fit:cover}
-    .ctrls{display:flex; gap:10px; align-items:center}
-    button, .btn{border:0; background:var(--brand); color:#fff; padding:10px 14px; border-radius:10px; cursor:pointer; font-weight:600; box-shadow: var(--shadow);}
-    button.ghost{background:transparent; color:var(--fg); border:1px solid rgba(127,137,151,.3)}
-    .card{background:var(--card); border:1px solid rgba(127,137,151,.18); border-radius:var(--radius-lg); padding:22px; margin:16px 0; box-shadow: var(--shadow)}
-    h1{font-size:34px; line-height:1.1; margin:10px 0}
-    h2{font-size:22px; margin:0 0 14px 0}
-    h3{font-size:17px; margin:10px 0 4px}
-    p{margin:6px 0; color:var(--fg)}
-    .muted{color:var(--muted)}
-    .grid{display:grid; grid-template-columns:1fr; gap:16px}
-    @media(min-width:900px){ .grid{ grid-template-columns: 2fr 1fr; } }
-    ul{margin:10px 0 0 22px}
-    li{margin:6px 0}
-    nav{display:flex; flex-wrap:wrap; gap:10px; margin:10px 0 0}
-    nav a{background:transparent; border:1px solid rgba(127,137,151,.3); padding:8px 12px; border-radius:10px}
-    .tag{display:inline-block; border:1px solid rgba(127,137,151,.25); padding:6px 10px; border-radius:999px; margin:4px 6px 0 0; font-size:13px; color:var(--muted)}
-    .two-col{display:grid; grid-template-columns:1fr; gap:12px}
-    @media(min-width:680px){ .two-col{ grid-template-columns:1fr 1fr; }}
-    .footer{margin-top:28px; text-align:center; color:var(--muted); font-size:14px}
-    .pill{display:inline-flex; align-items:center; gap:8px; padding:8px 12px; background: linear-gradient(180deg, rgba(255,255,255,.02), rgba(0,0,0,.08)); border:1px solid rgba(127,137,151,.18); border-radius: 12px}
-    .row{display:flex; align-items:center; justify-content:space-between; gap:12px}
-    .item{padding:12px 0; border-top: 1px dashed rgba(127,137,151,.25)}
-    .item:first-child{border-top:0}
-    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;}
-    .small{font-size:13px}
-    .header-left{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      flex-wrap:wrap;         /* allow wrapping on smaller screens */
+    :root {
+      --sky: #eaf6ff;
+      --paper: #fffdf8;
+      --paper-soft: rgba(255, 253, 248, 0.9);
+      --ink: #17354e;
+      --ink-soft: #557085;
+      --blue: #3e84c7;
+      --blue-soft: #cfeaff;
+      --coral: #ff8066;
+      --sun: #ffd166;
+      --mint: #62b9ad;
+      --line: #214762;
+      --line-soft: rgba(33, 71, 98, 0.2);
+      --shadow: 9px 9px 0 rgba(33, 71, 98, 0.12);
+      --shadow-strong: 13px 13px 0 rgba(33, 71, 98, 0.16);
+      --max-width: 1160px;
     }
 
-    /* Portrait next to header */
-    .profile-pic{
-      width: 120px;           /* desktop size */
-      height: 120px;
-      object-fit: cover;
-      border-radius: var(--radius-lg);
+    [data-theme="evening"] {
+      --sky: #13283a;
+      --paper: #1c3548;
+      --paper-soft: rgba(28, 53, 72, 0.92);
+      --ink: #f2f8ff;
+      --ink-soft: #b8ccda;
+      --blue: #80bded;
+      --blue-soft: #294e68;
+      --coral: #ff967f;
+      --sun: #ffdc7a;
+      --mint: #8bd4c9;
+      --line: #d4eaff;
+      --line-soft: rgba(212, 234, 255, 0.2);
+      --shadow: 9px 9px 0 rgba(0, 0, 0, 0.24);
+      --shadow-strong: 13px 13px 0 rgba(0, 0, 0, 0.3);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      min-width: 320px;
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(rgba(62, 132, 199, 0.055) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(62, 132, 199, 0.055) 1px, transparent 1px),
+        var(--sky);
+      background-size: 32px 32px;
+      font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      transition: color 180ms ease, background-color 180ms ease;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    a:focus-visible,
+    button:focus-visible {
+      outline: 3px solid var(--coral);
+      outline-offset: 4px;
+    }
+
+    .skip-link {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 30;
+      padding: 9px 13px;
+      color: #17354e;
+      background: var(--sun);
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .page {
+      width: min(var(--max-width), calc(100% - 40px));
+      margin: 0 auto;
+      padding: 22px 0 56px;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 12px;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      min-height: 62px;
+      margin-bottom: 20px;
+      padding: 9px 10px 9px 18px;
+      border: 2px solid var(--line);
+      border-radius: 14px;
+      background: var(--paper-soft);
       box-shadow: var(--shadow);
-      border:1px solid rgba(127,137,151,.18);
+      backdrop-filter: blur(16px);
     }
 
-    /* Stack on small screens, shrink photo slightly */
-    @media (max-width: 680px){
-      header{ flex-direction: column; align-items: flex-start; gap: 12px; }
-      .profile-pic{ width: 96px; height: 96px; }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 11px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
     }
-    /* print */
-    @media print{ header, .footer, .ctrls, nav{display:none} .card{box-shadow:none; border-color:#ddd} body{background:#fff; color:#000} a{color:#000} }
+
+    .brand-mark {
+      display: grid;
+      width: 38px;
+      height: 38px;
+      place-items: center;
+      color: #17354e;
+      background: var(--sun);
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      font-size: 12px;
+      box-shadow: 3px 3px 0 var(--coral);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .nav a {
+      padding: 8px 10px;
+      color: var(--ink-soft);
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .nav a:hover {
+      color: var(--ink);
+      background: var(--blue-soft);
+    }
+
+    .actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .button {
+      display: inline-flex;
+      min-height: 42px;
+      align-items: center;
+      justify-content: center;
+      padding: 8px 14px;
+      color: #17354e;
+      background: var(--coral);
+      border: 2px solid var(--line);
+      border-radius: 9px;
+      box-shadow: 4px 4px 0 var(--line);
+      cursor: pointer;
+      font-size: 14px;
+      font-weight: 900;
+      transition: transform 140ms ease, box-shadow 140ms ease;
+    }
+
+    .button.secondary {
+      color: var(--ink);
+      background: var(--paper);
+    }
+
+    .button:hover {
+      box-shadow: 2px 2px 0 var(--line);
+      transform: translate(2px, 2px);
+    }
+
+    .hero {
+      position: relative;
+      min-height: 680px;
+      overflow: hidden;
+      border: 3px solid var(--line);
+      border-radius: 28px 10px 28px 10px;
+      background: url("./hero-anime.png") center / cover no-repeat;
+      box-shadow: var(--shadow-strong);
+      isolation: isolate;
+    }
+
+    .hero::before {
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      background: linear-gradient(90deg, rgba(239, 249, 255, 0.94) 0%, rgba(239, 249, 255, 0.74) 39%, rgba(239, 249, 255, 0.06) 69%);
+    }
+
+    [data-theme="evening"] .hero::before {
+      background: linear-gradient(90deg, rgba(16, 37, 53, 0.92) 0%, rgba(16, 37, 53, 0.7) 42%, rgba(16, 37, 53, 0.1) 72%);
+    }
+
+    .hero-copy {
+      display: flex;
+      width: min(64%, 720px);
+      min-height: 680px;
+      flex-direction: column;
+      justify-content: center;
+      padding: clamp(34px, 7vw, 78px);
+    }
+
+    .issue-label,
+    .section-kicker,
+    .project-code {
+      margin: 0;
+      color: var(--blue);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin: 18px 0 22px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(56px, 8.3vw, 108px);
+      letter-spacing: -0.07em;
+      line-height: 0.84;
+      text-wrap: balance;
+    }
+
+    h1 span {
+      position: relative;
+      display: inline-block;
+      color: var(--coral);
+      font-style: italic;
+    }
+
+    h1 span::after {
+      position: absolute;
+      right: 0;
+      bottom: -9px;
+      left: 4px;
+      height: 9px;
+      content: "";
+      background: var(--sun);
+      border-radius: 60% 40% 55% 45%;
+      transform: rotate(-1deg);
+    }
+
+    .hero-intro {
+      max-width: 650px;
+      margin-bottom: 26px;
+      color: var(--ink-soft);
+      font-size: clamp(18px, 2vw, 22px);
+      font-weight: 700;
+      line-height: 1.55;
+    }
+
+    .hero-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .profile-stamp {
+      position: absolute;
+      right: clamp(22px, 5vw, 58px);
+      bottom: 36px;
+      width: 212px;
+      padding: 10px 10px 16px;
+      color: #17354e;
+      background: #fffdf8;
+      border: 3px solid var(--line);
+      box-shadow: 9px 9px 0 rgba(23, 53, 78, 0.28);
+      transform: rotate(2deg);
+    }
+
+    .profile-stamp img {
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      object-position: 52% center;
+      border: 2px solid var(--line);
+      filter: saturate(0.82) contrast(1.03);
+    }
+
+    .profile-stamp strong,
+    .profile-stamp span {
+      display: block;
+    }
+
+    .profile-stamp strong {
+      margin: 11px 3px 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 20px;
+    }
+
+    .profile-stamp span {
+      margin: 0 3px;
+      color: #5a7182;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .focus-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin: 18px 0 84px;
+    }
+
+    .focus-strip div {
+      padding: 15px 18px;
+      border: 2px solid var(--line);
+      border-radius: 10px;
+      background: var(--paper);
+      box-shadow: 5px 5px 0 var(--line-soft);
+    }
+
+    .focus-strip div:nth-child(2) {
+      background: color-mix(in srgb, var(--blue-soft) 70%, var(--paper));
+    }
+
+    .focus-strip div:nth-child(3) {
+      background: color-mix(in srgb, var(--sun) 32%, var(--paper));
+    }
+
+    .focus-strip span,
+    .focus-strip strong {
+      display: block;
+    }
+
+    .focus-strip span {
+      color: var(--ink-soft);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .focus-strip strong {
+      margin-top: 2px;
+      font-size: 15px;
+    }
+
+    .section {
+      position: relative;
+      scroll-margin-top: 100px;
+      margin-bottom: 88px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.55fr);
+      gap: 30px;
+      align-items: end;
+      margin-bottom: 28px;
+    }
+
+    h2 {
+      margin: 6px 0 0;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 6vw, 70px);
+      letter-spacing: -0.055em;
+      line-height: 0.98;
+    }
+
+    .section-note {
+      margin-bottom: 4px;
+      color: var(--ink-soft);
+      font-weight: 700;
+    }
+
+    .experience-list {
+      display: grid;
+      gap: 18px;
+    }
+
+    .experience-card {
+      position: relative;
+      display: grid;
+      grid-template-columns: 110px minmax(0, 1fr) minmax(150px, 0.28fr);
+      gap: 22px;
+      padding: 28px;
+      overflow: hidden;
+      border: 2px solid var(--line);
+      border-radius: 22px 8px 22px 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+      transition: transform 160ms ease, box-shadow 160ms ease;
+    }
+
+    .experience-card::before {
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 9px;
+      content: "";
+      background: var(--coral);
+    }
+
+    .experience-card:nth-child(2)::before {
+      background: var(--blue);
+    }
+
+    .experience-card:nth-child(3)::before {
+      background: var(--sun);
+    }
+
+    .experience-card:hover {
+      box-shadow: 5px 5px 0 rgba(33, 71, 98, 0.16);
+      transform: translate(4px, 4px);
+    }
+
+    .chapter-number {
+      color: var(--blue-soft);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 68px;
+      font-weight: 900;
+      letter-spacing: -0.08em;
+      line-height: 0.85;
+      -webkit-text-stroke: 2px var(--line);
+    }
+
+    .experience-main h3 {
+      margin-bottom: 6px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(25px, 3vw, 34px);
+      letter-spacing: -0.03em;
+      line-height: 1.12;
+    }
+
+    .role {
+      margin-bottom: 14px;
+      color: var(--coral);
+      font-size: 14px;
+      font-weight: 900;
+    }
+
+    .experience-card:nth-child(2) .role {
+      color: var(--blue);
+    }
+
+    .experience-card:nth-child(3) .role {
+      color: color-mix(in srgb, var(--mint) 85%, var(--ink));
+    }
+
+    .experience-main ul {
+      margin: 0;
+      padding-left: 20px;
+      color: var(--ink-soft);
+    }
+
+    .experience-main li + li {
+      margin-top: 7px;
+    }
+
+    .experience-meta {
+      align-self: start;
+      padding-left: 17px;
+      color: var(--ink-soft);
+      border-left: 2px dashed var(--line-soft);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 12px;
+      line-height: 1.75;
+      text-transform: uppercase;
+    }
+
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-card {
+      position: relative;
+      grid-column: span 6;
+      display: flex;
+      min-height: 360px;
+      flex-direction: column;
+      overflow: hidden;
+      padding: 28px;
+      border: 2px solid var(--line);
+      border-radius: 24px 8px 24px 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .project-card:first-child {
+      grid-column: span 7;
+      background: color-mix(in srgb, var(--blue-soft) 50%, var(--paper));
+    }
+
+    .project-card:nth-child(2) {
+      grid-column: span 5;
+      background: color-mix(in srgb, var(--sun) 22%, var(--paper));
+    }
+
+    .project-card:nth-child(3) {
+      background: color-mix(in srgb, var(--coral) 11%, var(--paper));
+    }
+
+    .project-card::after {
+      position: absolute;
+      right: -36px;
+      bottom: -36px;
+      width: 130px;
+      height: 130px;
+      content: "";
+      border: 3px solid var(--line-soft);
+      border-radius: 50%;
+      box-shadow: 0 0 0 14px transparent, 0 0 0 17px var(--line-soft);
+    }
+
+    .project-card h3 {
+      max-width: 620px;
+      margin: 18px 0 12px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(28px, 3.7vw, 46px);
+      letter-spacing: -0.045em;
+      line-height: 1.03;
+    }
+
+    .project-card p:not(.project-code) {
+      max-width: 650px;
+      margin-bottom: 24px;
+      color: var(--ink-soft);
+    }
+
+    .project-foot {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-top: auto;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 6px 10px;
+      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: var(--paper-soft);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 12px;
+    }
+
+    .project-link {
+      position: absolute;
+      top: 22px;
+      right: 22px;
+      z-index: 2;
+      display: grid;
+      width: 44px;
+      height: 44px;
+      place-items: center;
+      color: #17354e;
+      background: var(--sun);
+      border: 2px solid var(--line);
+      border-radius: 50%;
+      box-shadow: 3px 3px 0 var(--line);
+      font-size: 20px;
+      font-weight: 900;
+    }
+
+    .project-link:hover {
+      transform: rotate(-8deg);
+    }
+
+    .profile-grid {
+      display: grid;
+      grid-template-columns: 1.25fr 0.75fr;
+      gap: 18px;
+    }
+
+    .info-card {
+      padding: 28px;
+      border: 2px solid var(--line);
+      border-radius: 22px 8px 22px 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card h3 {
+      margin-bottom: 18px;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 30px;
+    }
+
+    .education-item + .education-item {
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 2px dashed var(--line-soft);
+    }
+
+    .education-item strong,
+    .education-item span {
+      display: block;
+    }
+
+    .education-item span {
+      margin-top: 5px;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .skill-cloud {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .skill-cloud .tag:nth-child(3n + 1) {
+      background: color-mix(in srgb, var(--blue-soft) 58%, var(--paper));
+    }
+
+    .skill-cloud .tag:nth-child(3n + 2) {
+      background: color-mix(in srgb, var(--sun) 22%, var(--paper));
+    }
+
+    .skill-cloud .tag:nth-child(3n + 3) {
+      background: color-mix(in srgb, var(--coral) 12%, var(--paper));
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 30px;
+      align-items: center;
+      padding: clamp(30px, 6vw, 64px);
+      border: 3px solid var(--line);
+      border-radius: 28px 10px 28px 10px;
+      background:
+        radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--sun) 55%, transparent), transparent 180px),
+        var(--paper);
+      box-shadow: var(--shadow-strong);
+    }
+
+    .contact-card h2 {
+      margin-bottom: 14px;
+    }
+
+    .contact-card p {
+      max-width: 640px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+    }
+
+    footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 30px 0 4px;
+      color: var(--ink-soft);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 12px;
+    }
+
+    @media (max-width: 960px) {
+      .nav {
+        display: none;
+      }
+
+      .hero-copy {
+        width: 72%;
+      }
+
+      .profile-stamp {
+        width: 180px;
+      }
+
+      .experience-card {
+        grid-template-columns: 90px minmax(0, 1fr);
+      }
+
+      .experience-meta {
+        grid-column: 2;
+        padding-top: 14px;
+        padding-left: 0;
+        border-top: 2px dashed var(--line-soft);
+        border-left: 0;
+      }
+
+      .project-card,
+      .project-card:first-child,
+      .project-card:nth-child(2) {
+        grid-column: span 6;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .page {
+        width: min(var(--max-width), calc(100% - 24px));
+        padding-top: 12px;
+      }
+
+      .topbar {
+        top: 8px;
+        padding-left: 10px;
+      }
+
+      .brand > span:last-child,
+      .button.contact-button {
+        display: none;
+      }
+
+      .hero {
+        min-height: 760px;
+        background-position: 66% center;
+      }
+
+      .hero::before,
+      [data-theme="evening"] .hero::before {
+        background: linear-gradient(to bottom, rgba(239, 249, 255, 0.92), rgba(239, 249, 255, 0.64) 56%, rgba(239, 249, 255, 0.1));
+      }
+
+      [data-theme="evening"] .hero::before {
+        background: linear-gradient(to bottom, rgba(16, 37, 53, 0.92), rgba(16, 37, 53, 0.65) 56%, rgba(16, 37, 53, 0.15));
+      }
+
+      .hero-copy {
+        width: 100%;
+        min-height: 470px;
+        justify-content: flex-start;
+        padding: 44px 22px;
+      }
+
+      h1 {
+        font-size: clamp(54px, 19vw, 86px);
+      }
+
+      .profile-stamp {
+        right: 22px;
+        bottom: 22px;
+        width: 155px;
+      }
+
+      .profile-stamp strong {
+        font-size: 17px;
+      }
+
+      .focus-strip {
+        grid-template-columns: 1fr;
+        margin-bottom: 66px;
+      }
+
+      .section-heading {
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .experience-card {
+        grid-template-columns: 56px minmax(0, 1fr);
+        gap: 14px;
+        padding: 22px 18px;
+      }
+
+      .chapter-number {
+        font-size: 46px;
+        -webkit-text-stroke-width: 1px;
+      }
+
+      .project-card,
+      .project-card:first-child,
+      .project-card:nth-child(2) {
+        grid-column: 1 / -1;
+        min-height: 350px;
+      }
+
+      .profile-grid,
+      .contact-card {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card .button {
+        justify-self: start;
+      }
+
+      footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    @media print {
+      :root {
+        --sky: #fff;
+        --paper: #fff;
+        --paper-soft: #fff;
+        --ink: #111;
+        --ink-soft: #333;
+        --line: #111;
+        --line-soft: #bbb;
+      }
+
+      .topbar,
+      .focus-strip,
+      .contact-card,
+      footer {
+        display: none;
+      }
+
+      .page {
+        width: 100%;
+        padding: 0;
+      }
+
+      .hero,
+      .experience-card,
+      .project-card,
+      .info-card {
+        break-inside: avoid;
+        box-shadow: none;
+      }
+    }
   </style>
-  <script>
-    // Theme toggle persistence
-    const THEME_KEY = 'zz-theme';
-    function setTheme(t){ document.documentElement.setAttribute('data-theme', t); localStorage.setItem(THEME_KEY, t); }
-    function toggleTheme(){ const t = localStorage.getItem(THEME_KEY) || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark':'light'); setTheme(t==='dark'?'light':'dark'); }
-    document.addEventListener('DOMContentLoaded',()=>{
-      const t = localStorage.getItem(THEME_KEY);
-      if(t) setTheme(t);
-    });
-  </script>
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "Person",
     "name": "Zichen Zhang",
-    "alternateName": ["Eden Zhang"],
-    "affiliation": {"@type":"CollegeOrUniversity","name":"University of Michigan"},
-    "alumniOf": [{"@type":"CollegeOrUniversity","name":"University of Michigan"},{"@type":"CollegeOrUniversity","name":"University of California, Santa Barbara"}],
-    "url": window.location.origin ? window.location.origin : ""
-    "sameAs": [] ,
-    "knowsAbout": ["Computer Vision","Natural Language Processing","Machine Learning","Information Retrieval","LLMs"],
-    "email": "YOUR_EMAIL@example.com"
+    "alternateName": "Eden Zhang",
+    "url": "https://rhongomyniadz.github.io/",
+    "email": "mailto:edenzha@umich.edu",
+    "affiliation": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Michigan"
+    },
+    "alumniOf": {
+      "@type": "CollegeOrUniversity",
+      "name": "University of Michigan"
+    },
+    "sameAs": ["https://github.com/Rhongomyniadz"],
+    "knowsAbout": [
+      "Computational Argumentation",
+      "Natural Language Processing",
+      "Embodied AI",
+      "Robot Learning",
+      "Machine Learning Systems"
+    ]
   }
   </script>
 </head>
 <body>
-  <div class="wrap">
-  <header>
-    <div class="header-left">
-      <div class="chip" title="Zichen Zhang (Eden)">
-        <!-- no tiny avatar here -->
-        <div>
-          <strong style="font-size:16px">Zichen Zhang</strong>
-          <div class="muted small">MS CS&E (SUGS) @ UMich — AI/ML · CV · NLP</div>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <div class="page" id="top">
+    <header class="topbar">
+      <a class="brand" href="#top" aria-label="Back to top">
+        <span class="brand-mark">ZZ</span>
+        <span>Zichen Zhang</span>
+      </a>
+      <nav class="nav" aria-label="Page sections">
+        <a href="#experience">Experience</a>
+        <a href="#projects">Projects</a>
+        <a href="#profile">Profile</a>
+      </nav>
+      <div class="actions">
+        <button class="button secondary" id="theme-toggle" type="button">Evening</button>
+        <a class="button contact-button" href="mailto:edenzha@umich.edu">Contact ↗</a>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="issue-label">Portfolio issue 01 · 2026</p>
+          <h1 id="hero-title">Zichen <span>Zhang.</span></h1>
+          <p class="hero-intro">I build systems that make hidden structure visible—from assumptions inside a conversation to the belief state of an embodied agent.</p>
+          <div class="hero-links" aria-label="Profile links">
+            <a class="button" href="#experience">Explore my work ↓</a>
+            <a class="button secondary" href="https://github.com/Rhongomyniadz" target="_blank" rel="noreferrer">GitHub ↗</a>
+            <a class="button secondary" href="./Resume.pdf" target="_blank" rel="noreferrer">Résumé ↗</a>
+          </div>
         </div>
+        <div class="profile-stamp">
+          <img src="./me.png" alt="Zichen Zhang at the Pyramid of the Sun in Teotihuacan" width="1280" height="1706">
+          <strong>Zichen “Eden” Zhang</strong>
+          <span>MS CS&amp;E · UMich</span>
+        </div>
+      </section>
+
+      <div class="focus-strip" aria-label="Current focus">
+        <div><span>Focus 01</span><strong>Argument flow</strong></div>
+        <div><span>Focus 02</span><strong>Embodied memory</strong></div>
+        <div><span>Focus 03</span><strong>Interface engineering</strong></div>
       </div>
-      <div class="ctrls">
-        <a class="btn" href="#contact">Contact</a>
-        <button class="ghost" onclick="toggleTheme()" title="Toggle theme">Toggle theme</button>
-        <button class="ghost" onclick="window.print()" title="Print / Save as PDF">Print</button>
-      </div>
-    </div>
 
-    <!-- Your portrait next to the header -->
-    <img class="profile-pic" src="./me.png" loading="eager" decoding="async" />
-  </header>
-
-    <div class="grid">
-      <!-- Main column -->
-      <main>
-        <section id="experience" class="card">
-          <h2>Experience</h2>
-          <div class="item">
-            <div class="row">
-              <h3>AI Research & Engineering — Selected Work</h3>
-              <span class="muted small">Ann Arbor, MI · 2023-2025</span>
-            </div>
-            <ul>
-              <li>Designed <strong>retrieval-augmented pipelines</strong> with hybrid (dense + sparse) embeddings, efficient query decomposition, and evaluation harnesses.</li>
-              <li>Led a <strong>Faster R-CNN object detection</strong> project: dataset tooling, anchors/RPN configuration, and training & ablation reporting.</li>
-              <li>Built LLM pipelines to <strong>model argumentative structure</strong> in podcasts (SPORC), including host-turn filtering, assumption extraction, and t-SNE analysis.</li>
-            </ul>
-          </div>
-          <div class="item">
-            <div class="row">
-              <h3>Industry Collaborations (selected)</h3>
-              <span class="muted small">2023-2025</span>
-            </div>
-            <ul>
-              <li>Trade Promotion Management (TPM) research for FMCG/seasoning industry; wrote templates/SOWs and ROI analysis artifacts.</li>
-              <li>Prototype <strong>AI chatbots and RAG systems</strong> for internal knowledge bases; GPU-backed local inference and observability.</li>
-            </ul>
-          </div>
-        </section>
-
-        <section id="projects" class="card">
-          <h2>Projects</h2>
-          <div class="item">
-            <div class="row">
-              <h3>Modeling Structure & Flow of Arguments in Podcast Discussions</h3>
-              <span class="muted small">2024-2025</span>
-            </div>
-            <p>LLM-assisted pipeline using SPORC dataset for assumption extraction, host-turn identification, and visualization. Includes reproducible scripts and evaluation.</p>
-            <div class="muted small mono">Python · vLLM · MiniLM · Matplotlib · JSON</div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <h3>Faster R-CNN Object Detection</h3>
-              <span class="muted small">2024</span>
-            </div>
-            <p>Custom VOC dataset loader, anchor design, RPN training, and experiments with ResNet-18 backbone + FPN-style proposals.</p>
-            <div class="muted small mono">PyTorch · torchvision · VOC2007</div>
-          </div>
-          <div class="item">
-            <div class="row">
-              <h3>Hybrid RAG for Technical Corpora</h3>
-              <span class="muted small">2024-2025</span>
-            </div>
-            <p>Hybrid search combining TF-IDF with dense embeddings; windowed chunking, reranking, and confidence-aware responses.</p>
-            <div class="muted small mono">Chroma · SentenceTransformers · FAISS-like · Flask</div>
-          </div>
-        </section>
-
-        <section id="education" class="card">
-          <h2>Education</h2>
-          <div class="item">
-            <div class="row">
-              <h3>University of Michigan — M.S. CS&E (SUGS)</h3>
-              <span class="muted small">Ann Arbor, MI · 2026 (expected)</span>
-            </div>
-            <p class="muted small">Focus: Computer Vision, Machine Learning, NLP.</p>
-          </div>
-          <div class="item">
-            <div class="row">
-              <h3>University of Michigan — B.S. Data Science & Computer Science</h3>
-              <span class="muted small">Ann Arbor, MI</span>
-            </div>
-            <p class="muted small">High distinction</p>
-          </div>
-        </section>
-
-        <section id="awards" class="card">
-          <h2>Awards</h2>
-          <ul>
-            <li>James B. Angell Scholar</li>
-          </ul>
-        </section>
-      </main>
-
-      <!-- Side column -->
-      <aside>
-        <section class="card">
-          <h2>Quick Links</h2>
-          <div class="two-col">
-            <a class="pill" href="https://github.com/Rhongomyniadz" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="pill" href="./Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
-            <a class="pill" href="mailto:edenzha@umich.edu">Email</a>
-          </div>
-        </section>
-
-        <section id="skills" class="card">
-          <h2>Skills</h2>
+      <section class="section" id="experience" aria-labelledby="experience-title">
+        <div class="section-heading">
           <div>
-            <div class="muted small">Languages & Frameworks</div>
-            <div>
+            <p class="section-kicker">Chapter 01 / Experience</p>
+            <h2 id="experience-title">Current work.</h2>
+          </div>
+          <p class="section-note">Language research, embodied intelligence, and product-facing engineering—each grounded in reproducible systems.</p>
+        </div>
+
+        <div class="experience-list">
+          <article class="experience-card">
+            <div class="chapter-number" aria-hidden="true">01</div>
+            <div class="experience-main">
+              <h3>Flow of Argument</h3>
+              <p class="role">Computational Argumentation Research</p>
+              <ul>
+                <li>Built an end-to-end SPORC pipeline for extracting and labeling stance, turn type, conversation moves, entailment, assumptions, and Gricean maxim violations with GPU-backed LLM inference.</li>
+                <li>Designed paper-facing analyses of relevance bridges, the assumption “iceberg,” implicature flow, processing load, repair cascades, and social-power dynamics.</li>
+                <li>Developed reproducible local and Slurm workflows with patch-safe merges, robustness checks, evaluation summaries, and publication-ready visualizations.</li>
+              </ul>
+            </div>
+            <div class="experience-meta">2024—Present<br>Python · vLLM<br>SPORC · Slurm</div>
+          </article>
+
+          <article class="experience-card">
+            <div class="chapter-number" aria-hidden="true">02</div>
+            <div class="experience-main">
+              <h3>Embodied AI Research Projects</h3>
+              <p class="role">StateBridge &amp; Compositional Robot Manipulation</p>
+              <ul>
+                <li>Designed StateBridge: an object-centric, uncertainty-aware belief-state bottleneck for preserving task-relevant facts after they leave an embodied agent’s field of view.</li>
+                <li>Specified a TEACh EDH evaluation path spanning hidden-state recovery, controlled partial-observability tests, next-action prediction, and closed-loop task execution.</li>
+                <li>Developed a factorized ManiSkill 3 research plan comparing BC, ACT, Diffusion Policy, and object-centric ACT, with a primary study of failure-guided demonstration collection.</li>
+              </ul>
+            </div>
+            <div class="experience-meta">2026—Present<br>TEACh · ManiSkill 3<br>Robot learning</div>
+          </article>
+
+          <article class="experience-card">
+            <div class="chapter-number" aria-hidden="true">03</div>
+            <div class="experience-main">
+              <h3>dsh Aemeath Skin</h3>
+              <p class="role">Open-source Interface Engineering</p>
+              <ul>
+                <li>Created a hot-pluggable Aemeath-inspired skin for the DeepSeek Harness Web GUI, covering chat, sidebar, composer, workspace rows, and session states.</li>
+                <li>Implemented responsive light and dark themes, custom artwork integration, and a complete skin package with metadata and Cordis patch wiring.</li>
+                <li>Built a deterministic, dependency-free asset pipeline that regenerates the distributable client bundle from source CSS, JavaScript, and WebP assets.</li>
+              </ul>
+            </div>
+            <div class="experience-meta">2026<br>CSS · ESM<br>Plugin systems</div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="projects" aria-labelledby="projects-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Chapter 02 / Selected Projects</p>
+            <h2 id="projects-title">Systems with a point of view.</h2>
+          </div>
+          <p class="section-note">Research infrastructure and interface work shaped around concrete, testable questions.</p>
+        </div>
+
+        <div class="project-grid">
+          <article class="project-card">
+            <p class="project-code">P-01 · Language systems</p>
+            <h3>Modeling argument flow in podcast discussions</h3>
+            <p>An ACL-oriented repository that turns long-form, multi-speaker conversations into testable signals about implicit assumptions, pragmatic violations, response dynamics, and social enforcement.</p>
+            <div class="project-foot">
+              <span class="tag">7 analysis tracks</span>
+              <span class="tag">LLM labeling</span>
+              <span class="tag">representation baselines</span>
+              <span class="tag">statistical modeling</span>
+            </div>
+            <a class="project-link" href="https://github.com/Rhongomyniadz/flow_of_argument" target="_blank" rel="noreferrer" aria-label="Open Flow of Argument on GitHub">↗</a>
+          </article>
+
+          <article class="project-card">
+            <p class="project-code">P-02 · Embodied intelligence</p>
+            <h3>StateBridge</h3>
+            <p>A research program for learning compact object-centric memory under partial observability, beginning with offline TEACh EDH and advancing toward controlled and closed-loop evaluation.</p>
+            <div class="project-foot">
+              <span class="tag">belief state</span>
+              <span class="tag">TEACh EDH</span>
+              <span class="tag">object memory</span>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <p class="project-code">P-03 · Interface craft</p>
+            <h3>Aemeath for DeepSeek Harness</h3>
+            <p>A full visual skin translated into usable product UI: two themes, responsive surfaces, custom artwork, package wiring, and a repeatable build.</p>
+            <div class="project-foot">
+              <span class="tag">design systems</span>
+              <span class="tag">CSS</span>
+              <span class="tag">ESM</span>
+              <span class="tag">WebP assets</span>
+            </div>
+            <a class="project-link" href="https://github.com/Rhongomyniadz/dsh-aemeath-skin" target="_blank" rel="noreferrer" aria-label="Open Aemeath skin on GitHub">↗</a>
+          </article>
+
+          <article class="project-card">
+            <p class="project-code">P-04 · Robot learning</p>
+            <h3>Compositional generalization in manipulation</h3>
+            <p>A factorized four-task Panda benchmark for testing multi-task visuomotor policies, isolated OOD factors, object-centric representations, and failure-guided data collection.</p>
+            <div class="project-foot">
+              <span class="tag">ManiSkill 3</span>
+              <span class="tag">ACT</span>
+              <span class="tag">Diffusion Policy</span>
+              <span class="tag">OOD evaluation</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section" id="profile" aria-labelledby="profile-title">
+        <div class="section-heading">
+          <div>
+            <p class="section-kicker">Chapter 03 / Profile</p>
+            <h2 id="profile-title">Training &amp; toolkit.</h2>
+          </div>
+          <p class="section-note">A foundation in data science and computer science, now focused on language, agents, and research systems.</p>
+        </div>
+
+        <div class="profile-grid">
+          <article class="info-card">
+            <h3>Education</h3>
+            <div class="education-item">
+              <strong>University of Michigan — M.S. Computer Science &amp; Engineering (SUGS)</strong>
+              <span>Expected 2026 · Ann Arbor, Michigan</span>
+            </div>
+            <div class="education-item">
+              <strong>University of Michigan — B.S. Data Science &amp; Computer Science</strong>
+              <span>High distinction · James B. Angell Scholar</span>
+            </div>
+          </article>
+
+          <article class="info-card">
+            <h3>Toolkit</h3>
+            <div class="skill-cloud">
               <span class="tag">Python</span>
               <span class="tag">PyTorch</span>
-              <span class="tag">NumPy</span>
-              <span class="tag">Matplotlib</span>
-              <span class="tag">SQL</span>
-              <span class="tag">C/C++</span>
-            </div>
-            <div class="muted small" style="margin-top:10px">Areas</div>
-            <div>
-              <span class="tag">Computer Vision</span>
-              <span class="tag">NLP</span>
-              <span class="tag">LLMs / RAG</span>
-            </div>
-            <div class="muted small" style="margin-top:10px">Tools</div>
-            <div>
               <span class="tag">vLLM</span>
-              <span class="tag">SentenceTransformers</span>
+              <span class="tag">NLP</span>
+              <span class="tag">Embodied AI</span>
+              <span class="tag">Robot learning</span>
+              <span class="tag">Slurm</span>
+              <span class="tag">Statistical analysis</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">CSS</span>
               <span class="tag">Git</span>
               <span class="tag">Linux</span>
             </div>
-          </div>
-        </section>
+          </article>
+        </div>
+      </section>
 
-        <section class="card">
-          <h2>Selected Coursework</h2>
-          <p class="small">EECS 542 (Advanced CV), 442 (CV), 445 (ML), 487 (NLP/LLMs), 484 (DB), 370 (Computer Architecture), 376 (Theory)</p>
-        </section>
+      <section class="section contact-card" id="contact" aria-labelledby="contact-title">
+        <div>
+          <p class="section-kicker">Chapter 04 / Contact</p>
+          <h2 id="contact-title">Let’s build the next system.</h2>
+          <p>I’m interested in research and engineering collaborations around language, embodied agents, and thoughtful AI interfaces.</p>
+        </div>
+        <a class="button" href="mailto:edenzha@umich.edu">edenzha@umich.edu ↗</a>
+      </section>
+    </main>
 
-        <section id="contact" class="card">
-          <h2>Contact</h2>
-          <p>Looking for research and engineering collaborations in AI/ML, especially CV/NLP.</p>
-          <p class="mono small">✉ edenzha@umich.edu</p>
-          <p class="mono small">GitHub: <span class="mono small">Rhongomyniadz</span></p>
-        </section>
-
-      </aside>
-    </div>
-
-    <div class="footer small">© <span id="y"></span> Zichen Zhang · Built with ♥ and GitHub Pages</div>
+    <footer>
+      <span>© <span id="year"></span> Zichen Zhang</span>
+      <span>Designed &amp; built for GitHub Pages</span>
+    </footer>
   </div>
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+
+  <script>
+    const themeKey = "zz-theme";
+    const root = document.documentElement;
+    const themeButton = document.getElementById("theme-toggle");
+
+    function savedTheme() {
+      const value = localStorage.getItem(themeKey);
+      return value === "evening" ? "evening" : "day";
+    }
+
+    function applyTheme(theme) {
+      root.dataset.theme = theme;
+      const isEvening = theme === "evening";
+      themeButton.textContent = isEvening ? "Daylight" : "Evening";
+      themeButton.setAttribute("aria-label", isEvening ? "Switch to daylight theme" : "Switch to evening theme");
+    }
+
+    function toggleTheme() {
+      const nextTheme = root.dataset.theme === "evening" ? "day" : "evening";
+      localStorage.setItem(themeKey, nextTheme);
+      applyTheme(nextTheme);
+    }
+
+    applyTheme(savedTheme());
+    themeButton.addEventListener("click", toggleTheme);
+    document.getElementById("year").textContent = String(new Date().getFullYear());
+  </script>
 </body>
 </html>
