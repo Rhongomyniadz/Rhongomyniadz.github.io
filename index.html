@@ -182,15 +182,6 @@
       letter-spacing: 0.1em;
     }
 
-    .contact-link {
-      padding: 9px 14px;
-      color: #07121b;
-      background: var(--orange);
-      border-radius: 7px 2px 7px 2px;
-      font-size: 14px;
-      font-weight: 900;
-    }
-
     .scroller {
       display: block;
       width: 100%;
@@ -204,7 +195,6 @@
       min-height: 100dvh;
       overflow: visible;
       padding: calc(var(--header-height) + 54px) clamp(28px, 4vw, 74px) 76px;
-      border-bottom: 1px solid var(--line);
     }
 
     .panel-inner {
@@ -359,15 +349,6 @@
       font-size: 12px;
       letter-spacing: 0.09em;
       text-transform: uppercase;
-    }
-
-    .edge-note {
-      position: absolute;
-      right: 28px;
-      bottom: 28px;
-      color: var(--blue);
-      font-size: 14px;
-      font-weight: 900;
     }
 
     .section-heading {
@@ -539,36 +520,6 @@
       color: var(--blue);
     }
 
-    .research-layout {
-      display: grid;
-      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.45fr);
-      gap: clamp(30px, 5vw, 90px);
-      align-items: start;
-    }
-
-    .research-intro {
-      position: sticky;
-      top: 118px;
-    }
-
-    .research-title {
-      margin: 16px 0 20px;
-      font-size: clamp(58px, 7vw, 112px);
-      font-style: italic;
-      letter-spacing: -0.07em;
-      line-height: 0.84;
-    }
-
-    .research-title span {
-      color: var(--orange);
-    }
-
-    .research-intro > p:last-child {
-      max-width: 470px;
-      color: var(--ink-soft);
-      font-size: 18px;
-    }
-
     .research-list {
       display: grid;
       gap: 13px;
@@ -679,46 +630,71 @@
       font-size: 12px;
     }
 
-    .contact-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 20px;
-    }
-
-    .contact-card p {
-      max-width: 520px;
-      margin-bottom: 0;
-      color: var(--ink-soft);
-    }
-
-    .panel-controls {
-      position: fixed;
-      right: 30px;
-      bottom: 22px;
-      z-index: 30;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .panel-controls button {
+    .contact-layout {
       display: grid;
-      width: 46px;
-      height: 46px;
-      place-items: center;
-      color: var(--ink);
-      background: rgba(8, 16, 24, 0.78);
-      border: 1px solid var(--line-bright);
-      border-radius: 50%;
-      cursor: pointer;
-      font-size: 20px;
-      backdrop-filter: blur(12px);
+      grid-template-columns: minmax(300px, 0.75fr) minmax(0, 1.25fr);
+      gap: clamp(34px, 6vw, 110px);
+      align-items: center;
     }
 
-    .panel-controls button:disabled {
-      cursor: not-allowed;
-      opacity: 0.32;
+    .contact-heading > p:last-child {
+      max-width: 560px;
+      margin-top: 24px;
+      color: var(--ink-soft);
+      font-size: 18px;
+    }
+
+    .contact-methods {
+      display: grid;
+      gap: 14px;
+    }
+
+    .contact-method {
+      display: grid;
+      grid-template-columns: minmax(90px, 0.28fr) minmax(0, 1fr) auto;
+      min-height: 104px;
+      padding: 24px 26px;
+      align-items: center;
+      gap: 20px;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 14px 3px 14px 3px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+      transition: transform 180ms ease, border-color 180ms ease, background 180ms ease;
+    }
+
+    .contact-method:hover,
+    .contact-method:focus-visible {
+      background: var(--panel-strong);
+      border-color: var(--line-bright);
+      transform: translateY(-3px);
+    }
+
+    .contact-method span {
+      color: var(--blue);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .contact-method strong {
+      overflow-wrap: anywhere;
+      font-size: clamp(17px, 2vw, 24px);
+    }
+
+    .linkedin-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 4px;
+      box-shadow: 0 8px 22px rgba(10, 102, 194, 0.24);
+    }
+
+    .contact-method b {
+      color: var(--orange);
+      font-size: 22px;
     }
 
     .progress-track {
@@ -732,7 +708,7 @@
     }
 
     .progress-bar {
-      width: 25%;
+      width: 20%;
       height: 100%;
       background: linear-gradient(90deg, var(--blue), var(--orange));
       transition: width 220ms ease;
@@ -756,13 +732,9 @@
         display: inline;
       }
 
-      .research-layout,
-      .profile-layout {
+      .profile-layout,
+      .contact-layout {
         grid-template-columns: 1fr;
-      }
-
-      .research-intro {
-        position: static;
       }
     }
 
@@ -835,13 +807,12 @@
         font-size: 42px;
       }
 
-      .contact-card {
-        align-items: flex-start;
-        flex-direction: column;
+      .contact-method {
+        grid-template-columns: 1fr auto;
       }
 
-      .edge-note {
-        display: none;
+      .contact-method span {
+        grid-column: 1 / -1;
       }
     }
 
@@ -870,7 +841,7 @@
       "@type": "CollegeOrUniversity",
       "name": "University of Michigan"
     },
-    "sameAs": ["https://github.com/Rhongomyniadz"],
+    "sameAs": ["https://github.com/Rhongomyniadz", "https://www.linkedin.com/in/zichen-zhang-928228290/"],
     "knowsAbout": ["Computational Argumentation", "Natural Language Processing", "Embodied AI", "Robot Learning", "Interface Systems"]
   }
   </script>
@@ -888,10 +859,10 @@
       <button type="button" data-go="1">Selected work</button>
       <button type="button" data-go="2">Research</button>
       <button type="button" data-go="3">Profile</button>
+      <button type="button" data-go="4">Contact</button>
     </nav>
     <div class="top-actions">
-      <span class="panel-count"><span id="current-panel">01</span> / 04</span>
-      <a class="contact-link" href="mailto:edenzha@umich.edu">Contact ↗</a>
+      <span class="panel-count"><span id="current-panel">01</span> / 05</span>
     </div>
   </header>
 
@@ -906,6 +877,7 @@
             <button class="button" type="button" data-go="1">Explore selected work →</button>
             <a class="button secondary" href="https://github.com/Rhongomyniadz" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a class="button secondary" href="./Resume.pdf" target="_blank" rel="noreferrer">Résumé ↗</a>
+            <button class="button secondary" type="button" data-go="4">Contact →</button>
           </div>
         </div>
 
@@ -917,7 +889,6 @@
           </figcaption>
         </figure>
       </div>
-      <span class="edge-note">Scroll to continue ↓</span>
     </section>
 
     <section class="panel" id="work" aria-labelledby="work-title">
@@ -956,8 +927,8 @@
               <div class="card-art"><strong>Interface</strong></div>
               <div class="card-body">
                 <p class="project-code">CSS · ESM · Plugin systems</p>
-                <h3>dsh Aemeath Skin</h3>
-                <p>A hot-pluggable DeepSeek Harness Web GUI skin with responsive light and dark surfaces, custom asset integration, package wiring, and a deterministic build.</p>
+                <h3>DSH Plugin</h3>
+                <p>A hot-pluggable DeepSeek Harness Web GUI plugin with responsive light and dark surfaces, custom asset integration, package wiring, and a deterministic build.</p>
                 <a class="card-link" href="https://github.com/Rhongomyniadz/dsh-aemeath-skin" target="_blank" rel="noreferrer">GitHub ↗</a>
               </div>
             </article>
@@ -972,11 +943,13 @@
     </section>
 
     <section class="panel" id="research" aria-labelledby="research-title">
-      <div class="panel-inner research-layout">
-        <div class="research-intro">
-          <p class="eyebrow">02 / Research</p>
-          <h2 class="research-title" id="research-title">Inside <span>the work.</span></h2>
-          <p>My current research asks how intelligent systems represent what is implied, remembered, and actionable.</p>
+      <div class="panel-inner">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">02 / Research</p>
+            <h2 id="research-title">Inside the work.</h2>
+          </div>
+          <p class="section-note">My current research asks how intelligent systems represent what is implied, remembered, and actionable.</p>
         </div>
 
         <div class="research-list">
@@ -1028,15 +1001,15 @@
             <h3>Education</h3>
             <div class="education-item">
               <strong>University of Michigan — M.S. Computer Science &amp; Engineering (SUGS)</strong>
-              <span>Expected 2026 · Ann Arbor, Michigan</span>
+              <span>08.2025 – 05.2026 · Ann Arbor, Michigan</span>
             </div>
             <div class="education-item">
               <strong>University of Michigan — B.S. Data Science &amp; Computer Science</strong>
-              <span>High distinction · James B. Angell Scholar</span>
+              <span>08.2021 – 05.2025 · High distinction · James B. Angell Scholar</span>
             </div>
           </article>
 
-          <article class="info-card">
+          <article class="info-card wide">
             <h3>Toolkit</h3>
             <div class="tags">
               <span class="tag">Python</span>
@@ -1054,22 +1027,37 @@
             </div>
           </article>
 
-          <article class="info-card contact-card">
-            <div>
-              <h3>Let’s build.</h3>
-              <p>I’m interested in research and engineering collaborations around language, embodied agents, and thoughtful AI interfaces.</p>
-            </div>
-            <a class="button" href="mailto:edenzha@umich.edu">Email ↗</a>
-          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="contact" aria-labelledby="contact-title">
+      <div class="panel-inner contact-layout">
+        <div class="contact-heading">
+          <p class="eyebrow">04 / Contact</p>
+          <h2 id="contact-title">Let’s build.</h2>
+          <p>I’m interested in research and engineering collaborations around language, embodied agents, and thoughtful AI interfaces.</p>
+        </div>
+
+        <div class="contact-methods">
+          <a class="contact-method" href="mailto:edenzha@umich.edu">
+            <span>Email</span>
+            <strong>edenzha@umich.edu</strong>
+            <b aria-hidden="true">↗</b>
+          </a>
+          <a class="contact-method" href="https://www.linkedin.com/in/zichen-zhang-928228290/" target="_blank" rel="noreferrer" aria-label="Open Zichen Zhang’s LinkedIn profile">
+            <span>LinkedIn</span>
+            <svg class="linkedin-icon" viewBox="0 0 24 24" aria-hidden="true">
+              <rect width="24" height="24" rx="2.5" fill="#0A66C2"></rect>
+              <path fill="#FFFFFF" d="M20.45 20.45h-3.56v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V8.98h3.42v1.57h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.29ZM5.32 7.41a2.07 2.07 0 1 1 0-4.13 2.07 2.07 0 0 1 0 4.13ZM7.1 20.45H3.54V8.98H7.1v11.47Z"></path>
+            </svg>
+            <b aria-hidden="true">↗</b>
+          </a>
         </div>
       </div>
     </section>
   </main>
 
-  <div class="panel-controls" aria-label="Panel navigation">
-    <button id="previous-panel" type="button" aria-label="Previous section">↑</button>
-    <button id="next-panel" type="button" aria-label="Next section">↓</button>
-  </div>
   <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
 
   <script>
@@ -1077,8 +1065,6 @@
     const panels = Array.from(document.querySelectorAll(".panel"));
     const navigationButtons = Array.from(document.querySelectorAll("[data-go]"));
     const topNavigationButtons = Array.from(document.querySelectorAll(".top-nav [data-go]"));
-    const previousButton = document.getElementById("previous-panel");
-    const nextButton = document.getElementById("next-panel");
     const panelCounter = document.getElementById("current-panel");
     const progressBar = document.getElementById("progress-bar");
     let activePanel = 0;
@@ -1096,8 +1082,6 @@
       activePanel = clampPanel(index);
       panelCounter.textContent = String(activePanel + 1).padStart(2, "0");
       progressBar.style.width = `${((activePanel + 1) / panels.length) * 100}%`;
-      previousButton.disabled = activePanel === 0;
-      nextButton.disabled = activePanel === panels.length - 1;
       topNavigationButtons.forEach((button) => {
         button.classList.toggle("active", Number(button.dataset.go) === activePanel);
       });
@@ -1106,9 +1090,6 @@
     navigationButtons.forEach((button) => {
       button.addEventListener("click", () => goToPanel(Number(button.dataset.go)));
     });
-
-    previousButton.addEventListener("click", () => goToPanel(activePanel - 1));
-    nextButton.addEventListener("click", () => goToPanel(activePanel + 1));
 
     document.addEventListener("keydown", (event) => {
       if (event.key === "ArrowDown" || event.key === "PageDown") {
