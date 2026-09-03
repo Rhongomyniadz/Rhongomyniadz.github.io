@@ -3,48 +3,27 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="color-scheme" content="light dark">
-  <meta name="theme-color" content="#eaf6ff">
+  <meta name="theme-color" content="#101923">
   <title>Zichen Zhang — Research & Engineering</title>
-  <meta name="description" content="Zichen Zhang (Eden) — researcher and engineer working across computational argumentation, embodied AI, and expressive interfaces.">
+  <meta name="description" content="Zichen Zhang (Eden) — research and engineering across computational argumentation, embodied AI, and interface systems.">
   <meta property="og:title" content="Zichen Zhang — Research & Engineering">
-  <meta property="og:description" content="Computational argumentation · embodied AI · interface engineering">
+  <meta property="og:description" content="Computational argumentation · embodied AI · interface systems">
   <meta property="og:type" content="website">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23dff3ff'/%3E%3Cpath d='M19 28h62L34 73h47' fill='none' stroke='%231b4f79' stroke-width='11' stroke-linejoin='round'/%3E%3Ccircle cx='77' cy='24' r='8' fill='%23ff8066'/%3E%3C/svg%3E">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%23101923'/%3E%3Cpath d='M19 28h62L34 73h47' fill='none' stroke='%2368c4ff' stroke-width='11' stroke-linejoin='round'/%3E%3Ccircle cx='77' cy='24' r='8' fill='%23ffb46d'/%3E%3C/svg%3E">
   <style>
     :root {
-      --sky: #eaf6ff;
-      --paper: #fffdf8;
-      --paper-soft: rgba(255, 253, 248, 0.9);
-      --ink: #17354e;
-      --ink-soft: #557085;
-      --blue: #3e84c7;
-      --blue-soft: #cfeaff;
-      --coral: #ff8066;
-      --sun: #ffd166;
-      --mint: #62b9ad;
-      --line: #214762;
-      --line-soft: rgba(33, 71, 98, 0.2);
-      --shadow: 9px 9px 0 rgba(33, 71, 98, 0.12);
-      --shadow-strong: 13px 13px 0 rgba(33, 71, 98, 0.16);
-      --max-width: 1160px;
-    }
-
-    [data-theme="evening"] {
-      --sky: #13283a;
-      --paper: #1c3548;
-      --paper-soft: rgba(28, 53, 72, 0.92);
-      --ink: #f2f8ff;
-      --ink-soft: #b8ccda;
-      --blue: #80bded;
-      --blue-soft: #294e68;
-      --coral: #ff967f;
-      --sun: #ffdc7a;
-      --mint: #8bd4c9;
-      --line: #d4eaff;
-      --line-soft: rgba(212, 234, 255, 0.2);
-      --shadow: 9px 9px 0 rgba(0, 0, 0, 0.24);
-      --shadow-strong: 13px 13px 0 rgba(0, 0, 0, 0.3);
+      --ink: #f3f7fb;
+      --ink-soft: #aebbc7;
+      --blue: #68c4ff;
+      --blue-deep: #2b8dcc;
+      --orange: #ffb46d;
+      --panel: rgba(11, 20, 29, 0.78);
+      --panel-solid: #131d27;
+      --panel-soft: rgba(26, 38, 50, 0.78);
+      --line: rgba(173, 211, 238, 0.24);
+      --line-bright: rgba(104, 196, 255, 0.58);
+      --shadow: 0 28px 70px rgba(0, 0, 0, 0.35);
+      --header-height: 72px;
     }
 
     * {
@@ -52,22 +31,41 @@
     }
 
     html {
+      color-scheme: dark;
       scroll-behavior: smooth;
     }
 
     body {
       min-width: 320px;
       margin: 0;
+      overflow-x: hidden;
+      overflow-y: auto;
       color: var(--ink);
-      background:
-        linear-gradient(rgba(62, 132, 199, 0.055) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(62, 132, 199, 0.055) 1px, transparent 1px),
-        var(--sky);
-      background-size: 32px 32px;
+      background: #10202d url("./hero-anime.png") center / cover fixed no-repeat;
       font-family: "Trebuchet MS", "Segoe UI", system-ui, sans-serif;
       font-size: 16px;
-      line-height: 1.65;
-      transition: color 180ms ease, background-color 180ms ease;
+      line-height: 1.6;
+    }
+
+    body::before,
+    body::after {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      content: "";
+      pointer-events: none;
+    }
+
+    body::before {
+      background: linear-gradient(100deg, rgba(5, 12, 19, 0.92), rgba(8, 19, 28, 0.73) 48%, rgba(10, 27, 38, 0.6));
+    }
+
+    body::after {
+      background:
+        linear-gradient(rgba(104, 196, 255, 0.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(104, 196, 255, 0.025) 1px, transparent 1px),
+        radial-gradient(circle at center, transparent 42%, rgba(2, 8, 13, 0.42));
+      background-size: 42px 42px, 42px 42px, 100% 100%;
     }
 
     a {
@@ -76,25 +74,25 @@
     }
 
     button {
+      color: inherit;
       font: inherit;
     }
 
     a:focus-visible,
     button:focus-visible {
-      outline: 3px solid var(--coral);
+      outline: 3px solid var(--orange);
       outline-offset: 4px;
     }
 
     .skip-link {
       position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 30;
-      padding: 9px 13px;
-      color: #17354e;
-      background: var(--sun);
-      border: 2px solid var(--line);
-      border-radius: 8px;
+      top: 10px;
+      left: 10px;
+      z-index: 40;
+      padding: 8px 12px;
+      color: #07121b;
+      background: var(--blue);
+      border-radius: 6px;
       transform: translateY(-160%);
     }
 
@@ -102,143 +100,127 @@
       transform: translateY(0);
     }
 
-    .page {
-      width: min(var(--max-width), calc(100% - 40px));
-      margin: 0 auto;
-      padding: 22px 0 56px;
-    }
-
     .topbar {
-      position: sticky;
-      top: 12px;
-      z-index: 20;
-      display: flex;
+      position: fixed;
+      top: 16px;
+      right: 28px;
+      left: 28px;
+      z-index: 30;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
       align-items: center;
-      justify-content: space-between;
-      gap: 18px;
-      min-height: 62px;
-      margin-bottom: 20px;
-      padding: 9px 10px 9px 18px;
-      border: 2px solid var(--line);
-      border-radius: 14px;
-      background: var(--paper-soft);
-      box-shadow: var(--shadow);
-      backdrop-filter: blur(16px);
+      min-height: var(--header-height);
+      padding: 8px 10px 8px 18px;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: rgba(8, 16, 24, 0.74);
+      box-shadow: 0 16px 40px rgba(0, 0, 0, 0.24);
+      backdrop-filter: blur(18px);
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
       gap: 11px;
+      justify-self: start;
+      color: inherit;
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
       font-weight: 900;
       letter-spacing: -0.02em;
     }
 
     .brand-mark {
       display: grid;
-      width: 38px;
-      height: 38px;
+      width: 40px;
+      height: 40px;
       place-items: center;
-      color: #17354e;
-      background: var(--sun);
-      border: 2px solid var(--line);
-      border-radius: 50%;
+      color: #07121b;
+      background: var(--blue);
+      border-radius: 7px 2px 7px 2px;
+      font-family: ui-monospace, "Cascadia Code", monospace;
       font-size: 12px;
-      box-shadow: 3px 3px 0 var(--coral);
     }
 
-    .nav {
+    .top-nav {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
+      justify-self: center;
     }
 
-    .nav a {
-      padding: 8px 10px;
+    .top-nav button {
+      padding: 8px 12px;
       color: var(--ink-soft);
-      border-radius: 8px;
+      background: transparent;
+      border: 0;
+      border-radius: 6px;
+      cursor: pointer;
       font-size: 14px;
       font-weight: 800;
     }
 
-    .nav a:hover {
-      color: var(--ink);
-      background: var(--blue-soft);
+    .top-nav button:hover,
+    .top-nav button.active {
+      color: var(--blue);
+      background: rgba(104, 196, 255, 0.09);
     }
 
-    .actions {
+    .top-actions {
       display: flex;
-      gap: 8px;
+      align-items: center;
+      gap: 10px;
+      justify-self: end;
     }
 
-    .button {
-      display: inline-flex;
-      min-height: 42px;
-      align-items: center;
-      justify-content: center;
-      padding: 8px 14px;
-      color: #17354e;
-      background: var(--coral);
-      border: 2px solid var(--line);
-      border-radius: 9px;
-      box-shadow: 4px 4px 0 var(--line);
-      cursor: pointer;
+    .panel-count {
+      color: var(--ink-soft);
+      font-family: ui-monospace, "Cascadia Code", monospace;
+      font-size: 13px;
+      letter-spacing: 0.1em;
+    }
+
+    .contact-link {
+      padding: 9px 14px;
+      color: #07121b;
+      background: var(--orange);
+      border-radius: 7px 2px 7px 2px;
       font-size: 14px;
       font-weight: 900;
-      transition: transform 140ms ease, box-shadow 140ms ease;
     }
 
-    .button.secondary {
-      color: var(--ink);
-      background: var(--paper);
+    .scroller {
+      display: block;
+      width: 100%;
+      height: auto;
+      overflow: visible;
     }
 
-    .button:hover {
-      box-shadow: 2px 2px 0 var(--line);
-      transform: translate(2px, 2px);
-    }
-
-    .hero {
+    .panel {
       position: relative;
-      min-height: 680px;
-      overflow: hidden;
-      border: 3px solid var(--line);
-      border-radius: 28px 10px 28px 10px;
-      background: url("./hero-anime.png") center / cover no-repeat;
-      box-shadow: var(--shadow-strong);
-      isolation: isolate;
+      width: 100%;
+      min-height: 100dvh;
+      overflow: visible;
+      padding: calc(var(--header-height) + 54px) clamp(28px, 4vw, 74px) 76px;
+      border-bottom: 1px solid var(--line);
     }
 
-    .hero::before {
-      position: absolute;
-      inset: 0;
-      z-index: -1;
-      content: "";
-      background: linear-gradient(90deg, rgba(239, 249, 255, 0.94) 0%, rgba(239, 249, 255, 0.74) 39%, rgba(239, 249, 255, 0.06) 69%);
+    .panel-inner {
+      width: min(100%, 1780px);
+      min-height: calc(100dvh - var(--header-height) - 130px);
+      margin: 0 auto;
     }
 
-    [data-theme="evening"] .hero::before {
-      background: linear-gradient(90deg, rgba(16, 37, 53, 0.92) 0%, rgba(16, 37, 53, 0.7) 42%, rgba(16, 37, 53, 0.1) 72%);
-    }
-
-    .hero-copy {
-      display: flex;
-      width: min(64%, 720px);
-      min-height: 680px;
-      flex-direction: column;
-      justify-content: center;
-      padding: clamp(34px, 7vw, 78px);
-    }
-
-    .issue-label,
-    .section-kicker,
+    .eyebrow,
     .project-code {
       margin: 0;
       color: var(--blue);
       font-family: ui-monospace, "Cascadia Code", monospace;
       font-size: 13px;
       font-weight: 900;
-      letter-spacing: 0.13em;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
     }
 
@@ -249,383 +231,426 @@
       margin-top: 0;
     }
 
-    h1 {
-      margin: 18px 0 22px;
+    h1,
+    h2,
+    .statement,
+    .research-title {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(56px, 8.3vw, 108px);
-      letter-spacing: -0.07em;
-      line-height: 0.84;
-      text-wrap: balance;
+    }
+
+    .home-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.15fr) minmax(330px, 0.62fr);
+      gap: clamp(38px, 6vw, 110px);
+      align-items: center;
+    }
+
+    .home-copy {
+      max-width: 880px;
+      min-width: 0;
+      padding-block: 20px;
+    }
+
+    h1 {
+      max-width: 100%;
+      margin: 24px 0 12px;
+      padding: 0;
+      font-size: clamp(68px, 8.1vw, 142px);
+      font-weight: 700;
+      letter-spacing: -0.06em;
+      line-height: 0.88;
+      overflow: visible;
     }
 
     h1 span {
-      position: relative;
-      display: inline-block;
-      color: var(--coral);
+      display: block;
+      width: fit-content;
+      max-width: 100%;
+      margin: -0.06em -0.16em -0.14em -0.14em;
+      padding: 0.06em 0.16em 0.24em 0.14em;
+      overflow: visible;
+      color: transparent;
+      background: linear-gradient(90deg, var(--blue), #f4fbff 58%, var(--orange));
+      background-clip: text;
+      -webkit-background-clip: text;
       font-style: italic;
     }
 
-    h1 span::after {
-      position: absolute;
-      right: 0;
-      bottom: -9px;
-      left: 4px;
-      height: 9px;
-      content: "";
-      background: var(--sun);
-      border-radius: 60% 40% 55% 45%;
-      transform: rotate(-1deg);
-    }
-
-    .hero-intro {
-      max-width: 650px;
-      margin-bottom: 26px;
+    .home-intro {
+      max-width: 700px;
+      margin-bottom: 30px;
       color: var(--ink-soft);
-      font-size: clamp(18px, 2vw, 22px);
-      font-weight: 700;
-      line-height: 1.55;
+      font-size: clamp(18px, 1.5vw, 23px);
     }
 
-    .hero-links {
+    .home-links {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
     }
 
-    .profile-stamp {
-      position: absolute;
-      right: clamp(22px, 5vw, 58px);
-      bottom: 36px;
-      width: 212px;
-      padding: 10px 10px 16px;
-      color: #17354e;
-      background: #fffdf8;
-      border: 3px solid var(--line);
-      box-shadow: 9px 9px 0 rgba(23, 53, 78, 0.28);
-      transform: rotate(2deg);
+    .button {
+      display: inline-flex;
+      min-height: 44px;
+      align-items: center;
+      justify-content: center;
+      padding: 9px 15px;
+      color: #07121b;
+      background: var(--blue);
+      border: 1px solid var(--blue);
+      border-radius: 7px 2px 7px 2px;
+      font-size: 14px;
+      font-weight: 900;
+      transition: transform 140ms ease;
     }
 
-    .profile-stamp img {
+    .button.secondary {
+      color: var(--ink);
+      background: rgba(12, 24, 34, 0.68);
+      border-color: var(--line-bright);
+    }
+
+    .button:hover {
+      transform: translateY(-2px);
+    }
+
+    .portrait {
+      position: relative;
+      width: min(100%, 430px);
+      margin: 0;
+      padding: 14px 14px 18px;
+      justify-self: center;
+      border: 1px solid var(--line-bright);
+      border-radius: 18px 4px 18px 4px;
+      background: rgba(8, 17, 25, 0.78);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+
+    .portrait img {
       display: block;
       width: 100%;
-      aspect-ratio: 4 / 5;
-      object-fit: cover;
-      object-position: 52% center;
-      border: 2px solid var(--line);
-      filter: saturate(0.82) contrast(1.03);
+      height: auto;
+      max-height: 67dvh;
+      object-fit: contain;
+      object-position: center;
+      border-radius: 10px 2px 10px 2px;
     }
 
-    .profile-stamp strong,
-    .profile-stamp span {
+    .portrait figcaption {
+      padding: 14px 4px 0;
+    }
+
+    .portrait strong,
+    .portrait span {
       display: block;
     }
 
-    .profile-stamp strong {
-      margin: 11px 3px 0;
+    .portrait strong {
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 20px;
+      font-size: 23px;
+      font-style: italic;
     }
 
-    .profile-stamp span {
-      margin: 0 3px;
-      color: #5a7182;
-      font-size: 12px;
-      font-weight: 800;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-    }
-
-    .focus-strip {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 18px 0 84px;
-    }
-
-    .focus-strip div {
-      padding: 15px 18px;
-      border: 2px solid var(--line);
-      border-radius: 10px;
-      background: var(--paper);
-      box-shadow: 5px 5px 0 var(--line-soft);
-    }
-
-    .focus-strip div:nth-child(2) {
-      background: color-mix(in srgb, var(--blue-soft) 70%, var(--paper));
-    }
-
-    .focus-strip div:nth-child(3) {
-      background: color-mix(in srgb, var(--sun) 32%, var(--paper));
-    }
-
-    .focus-strip span,
-    .focus-strip strong {
-      display: block;
-    }
-
-    .focus-strip span {
-      color: var(--ink-soft);
+    .portrait span {
+      margin-top: 3px;
+      color: var(--blue);
       font-family: ui-monospace, "Cascadia Code", monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
+      font-size: 12px;
+      letter-spacing: 0.09em;
       text-transform: uppercase;
     }
 
-    .focus-strip strong {
-      margin-top: 2px;
-      font-size: 15px;
-    }
-
-    .section {
-      position: relative;
-      scroll-margin-top: 100px;
-      margin-bottom: 88px;
-    }
-
-    .section-heading {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(250px, 0.55fr);
-      gap: 30px;
-      align-items: end;
-      margin-bottom: 28px;
-    }
-
-    h2 {
-      margin: 6px 0 0;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 6vw, 70px);
-      letter-spacing: -0.055em;
-      line-height: 0.98;
-    }
-
-    .section-note {
-      margin-bottom: 4px;
-      color: var(--ink-soft);
-      font-weight: 700;
-    }
-
-    .experience-list {
-      display: grid;
-      gap: 18px;
-    }
-
-    .experience-card {
-      position: relative;
-      display: grid;
-      grid-template-columns: 110px minmax(0, 1fr) minmax(150px, 0.28fr);
-      gap: 22px;
-      padding: 28px;
-      overflow: hidden;
-      border: 2px solid var(--line);
-      border-radius: 22px 8px 22px 8px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-      transition: transform 160ms ease, box-shadow 160ms ease;
-    }
-
-    .experience-card::before {
+    .edge-note {
       position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      width: 9px;
-      content: "";
-      background: var(--coral);
-    }
-
-    .experience-card:nth-child(2)::before {
-      background: var(--blue);
-    }
-
-    .experience-card:nth-child(3)::before {
-      background: var(--sun);
-    }
-
-    .experience-card:hover {
-      box-shadow: 5px 5px 0 rgba(33, 71, 98, 0.16);
-      transform: translate(4px, 4px);
-    }
-
-    .chapter-number {
-      color: var(--blue-soft);
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: 68px;
-      font-weight: 900;
-      letter-spacing: -0.08em;
-      line-height: 0.85;
-      -webkit-text-stroke: 2px var(--line);
-    }
-
-    .experience-main h3 {
-      margin-bottom: 6px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(25px, 3vw, 34px);
-      letter-spacing: -0.03em;
-      line-height: 1.12;
-    }
-
-    .role {
-      margin-bottom: 14px;
-      color: var(--coral);
+      right: 28px;
+      bottom: 28px;
+      color: var(--blue);
       font-size: 14px;
       font-weight: 900;
     }
 
-    .experience-card:nth-child(2) .role {
-      color: var(--blue);
-    }
-
-    .experience-card:nth-child(3) .role {
-      color: color-mix(in srgb, var(--mint) 85%, var(--ink));
-    }
-
-    .experience-main ul {
-      margin: 0;
-      padding-left: 20px;
-      color: var(--ink-soft);
-    }
-
-    .experience-main li + li {
-      margin-top: 7px;
-    }
-
-    .experience-meta {
-      align-self: start;
-      padding-left: 17px;
-      color: var(--ink-soft);
-      border-left: 2px dashed var(--line-soft);
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      font-size: 12px;
-      line-height: 1.75;
-      text-transform: uppercase;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(12, minmax(0, 1fr));
-      gap: 18px;
-    }
-
-    .project-card {
-      position: relative;
-      grid-column: span 6;
+    .section-heading {
       display: flex;
-      min-height: 360px;
+      align-items: end;
+      justify-content: space-between;
+      gap: 30px;
+      margin-bottom: 22px;
+    }
+
+    h2 {
+      margin: 10px 0 0;
+      font-size: clamp(54px, 6vw, 96px);
+      letter-spacing: -0.06em;
+      line-height: 0.88;
+    }
+
+    .section-note {
+      max-width: 440px;
+      margin-bottom: 2px;
+      color: var(--ink-soft);
+      text-align: right;
+    }
+
+    .work-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.66fr);
+      gap: clamp(22px, 3vw, 54px);
+      align-items: stretch;
+    }
+
+    .work-cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .work-card {
+      display: flex;
+      min-height: 470px;
       flex-direction: column;
       overflow: hidden;
-      padding: 28px;
-      border: 2px solid var(--line);
-      border-radius: 24px 8px 24px 8px;
-      background: var(--paper);
-      box-shadow: var(--shadow);
-    }
-
-    .project-card:first-child {
-      grid-column: span 7;
-      background: color-mix(in srgb, var(--blue-soft) 50%, var(--paper));
-    }
-
-    .project-card:nth-child(2) {
-      grid-column: span 5;
-      background: color-mix(in srgb, var(--sun) 22%, var(--paper));
-    }
-
-    .project-card:nth-child(3) {
-      background: color-mix(in srgb, var(--coral) 11%, var(--paper));
-    }
-
-    .project-card::after {
-      position: absolute;
-      right: -36px;
-      bottom: -36px;
-      width: 130px;
-      height: 130px;
-      content: "";
-      border: 3px solid var(--line-soft);
-      border-radius: 50%;
-      box-shadow: 0 0 0 14px transparent, 0 0 0 17px var(--line-soft);
-    }
-
-    .project-card h3 {
-      max-width: 620px;
-      margin: 18px 0 12px;
-      font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(28px, 3.7vw, 46px);
-      letter-spacing: -0.045em;
-      line-height: 1.03;
-    }
-
-    .project-card p:not(.project-code) {
-      max-width: 650px;
-      margin-bottom: 24px;
-      color: var(--ink-soft);
-    }
-
-    .project-foot {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 7px;
-      margin-top: auto;
-    }
-
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      padding: 6px 10px;
-      color: var(--ink-soft);
       border: 1px solid var(--line);
-      border-radius: 999px;
-      background: var(--paper-soft);
-      font-family: ui-monospace, "Cascadia Code", monospace;
-      font-size: 12px;
+      border-radius: 17px 4px 17px 4px;
+      background: var(--panel-soft);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
     }
 
-    .project-link {
+    .card-art {
+      position: relative;
+      display: grid;
+      min-height: 156px;
+      place-items: end start;
+      overflow: hidden;
+      padding: 20px;
+      border-bottom: 1px solid var(--line);
+      background:
+        linear-gradient(135deg, rgba(104, 196, 255, 0.34), transparent 62%),
+        rgba(14, 34, 47, 0.86);
+    }
+
+    .work-card:nth-child(2) .card-art {
+      background:
+        linear-gradient(145deg, rgba(255, 180, 109, 0.3), transparent 58%),
+        rgba(22, 36, 47, 0.9);
+    }
+
+    .work-card:nth-child(3) .card-art {
+      background:
+        linear-gradient(145deg, rgba(122, 211, 187, 0.28), transparent 58%),
+        rgba(18, 34, 43, 0.9);
+    }
+
+    .card-art::before {
       position: absolute;
       top: 22px;
       right: 22px;
-      z-index: 2;
-      display: grid;
-      width: 44px;
-      height: 44px;
-      place-items: center;
-      color: #17354e;
-      background: var(--sun);
-      border: 2px solid var(--line);
+      width: 76px;
+      height: 76px;
+      content: "";
+      border: 1px solid var(--line-bright);
       border-radius: 50%;
-      box-shadow: 3px 3px 0 var(--line);
-      font-size: 20px;
-      font-weight: 900;
+      box-shadow: 0 0 0 14px rgba(104, 196, 255, 0.04);
     }
 
-    .project-link:hover {
-      transform: rotate(-8deg);
+    .card-art strong {
+      position: relative;
+      z-index: 1;
+      color: rgba(243, 247, 251, 0.9);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 34px;
+      font-style: italic;
+      letter-spacing: -0.04em;
+    }
+
+    .card-body {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 22px;
+    }
+
+    .card-body h3 {
+      margin: 12px 0 10px;
+      font-size: 24px;
+      line-height: 1.12;
+    }
+
+    .card-body p:not(.project-code) {
+      margin-bottom: 18px;
+      color: var(--ink-soft);
+      font-size: 14px;
+    }
+
+    .card-link {
+      margin-top: auto;
+      padding: 0;
+      color: var(--blue);
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      font: inherit;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 0.08em;
+      text-align: left;
+      text-transform: uppercase;
+    }
+
+    .work-statement {
+      position: relative;
+      display: flex;
+      min-height: 470px;
+      flex-direction: column;
+      justify-content: center;
+      overflow: hidden;
+      padding: clamp(28px, 4vw, 60px);
+      border: 1px solid var(--line);
+      border-radius: 17px 4px 17px 4px;
+      background: rgba(8, 16, 24, 0.42);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(7px);
+    }
+
+    .work-statement::before {
+      position: absolute;
+      top: -130px;
+      right: -120px;
+      width: 390px;
+      height: 390px;
+      content: "";
+      border: 1px solid rgba(104, 196, 255, 0.26);
+      border-radius: 50%;
+      box-shadow: 0 0 0 44px rgba(104, 196, 255, 0.025), 0 0 0 90px rgba(255, 180, 109, 0.018);
+    }
+
+    .statement {
+      position: relative;
+      margin: 0;
+      font-size: clamp(48px, 5vw, 88px);
+      font-style: italic;
+      letter-spacing: -0.06em;
+      line-height: 0.98;
+    }
+
+    .statement span {
+      display: block;
+      color: var(--blue);
+    }
+
+    .research-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 0.72fr) minmax(0, 1.45fr);
+      gap: clamp(30px, 5vw, 90px);
+      align-items: start;
+    }
+
+    .research-intro {
+      position: sticky;
+      top: 118px;
+    }
+
+    .research-title {
+      margin: 16px 0 20px;
+      font-size: clamp(58px, 7vw, 112px);
+      font-style: italic;
+      letter-spacing: -0.07em;
+      line-height: 0.84;
+    }
+
+    .research-title span {
+      color: var(--orange);
+    }
+
+    .research-intro > p:last-child {
+      max-width: 470px;
+      color: var(--ink-soft);
+      font-size: 18px;
+    }
+
+    .research-list {
+      display: grid;
+      gap: 13px;
+    }
+
+    .research-card {
+      display: grid;
+      grid-template-columns: 100px minmax(0, 1fr);
+      gap: 24px;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 14px 3px 14px 3px;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .research-number {
+      color: var(--blue);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 56px;
+      line-height: 0.9;
+    }
+
+    .research-card h3 {
+      margin-bottom: 9px;
+      font-size: 25px;
+    }
+
+    .research-card p {
+      margin-bottom: 0;
+      color: var(--ink-soft);
+    }
+
+    .profile-layout {
+      display: grid;
+      grid-template-columns: minmax(300px, 0.72fr) minmax(0, 1.4fr);
+      gap: clamp(32px, 5vw, 90px);
+      align-items: center;
+    }
+
+    .profile-heading h2 {
+      margin-bottom: 24px;
+    }
+
+    .profile-heading p:last-child {
+      max-width: 480px;
+      color: var(--ink-soft);
+      font-size: 18px;
     }
 
     .profile-grid {
       display: grid;
-      grid-template-columns: 1.25fr 0.75fr;
-      gap: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
     }
 
     .info-card {
-      padding: 28px;
-      border: 2px solid var(--line);
-      border-radius: 22px 8px 22px 8px;
-      background: var(--paper);
+      padding: 25px;
+      border: 1px solid var(--line);
+      border-radius: 14px 3px 14px 3px;
+      background: var(--panel);
       box-shadow: var(--shadow);
+      backdrop-filter: blur(14px);
+    }
+
+    .info-card.wide {
+      grid-column: 1 / -1;
     }
 
     .info-card h3 {
-      margin-bottom: 18px;
+      margin-bottom: 16px;
+      color: var(--blue);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: 30px;
+      font-size: 27px;
+      font-style: italic;
     }
 
     .education-item + .education-item {
-      margin-top: 18px;
-      padding-top: 18px;
-      border-top: 2px dashed var(--line-soft);
+      margin-top: 15px;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
     }
 
     .education-item strong,
@@ -634,230 +659,202 @@
     }
 
     .education-item span {
-      margin-top: 5px;
+      margin-top: 3px;
       color: var(--ink-soft);
       font-size: 14px;
     }
 
-    .skill-cloud {
+    .tags {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 7px;
     }
 
-    .skill-cloud .tag:nth-child(3n + 1) {
-      background: color-mix(in srgb, var(--blue-soft) 58%, var(--paper));
-    }
-
-    .skill-cloud .tag:nth-child(3n + 2) {
-      background: color-mix(in srgb, var(--sun) 22%, var(--paper));
-    }
-
-    .skill-cloud .tag:nth-child(3n + 3) {
-      background: color-mix(in srgb, var(--coral) 12%, var(--paper));
-    }
-
-    .contact-card {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 30px;
-      align-items: center;
-      padding: clamp(30px, 6vw, 64px);
-      border: 3px solid var(--line);
-      border-radius: 28px 10px 28px 10px;
-      background:
-        radial-gradient(circle at 88% 20%, color-mix(in srgb, var(--sun) 55%, transparent), transparent 180px),
-        var(--paper);
-      box-shadow: var(--shadow-strong);
-    }
-
-    .contact-card h2 {
-      margin-bottom: 14px;
-    }
-
-    .contact-card p {
-      max-width: 640px;
-      margin-bottom: 0;
+    .tag {
+      padding: 6px 9px;
       color: var(--ink-soft);
-    }
-
-    footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 20px;
-      padding: 30px 0 4px;
-      color: var(--ink-soft);
+      border: 1px solid var(--line);
+      border-radius: 999px;
       font-family: ui-monospace, "Cascadia Code", monospace;
       font-size: 12px;
     }
 
-    @media (max-width: 960px) {
-      .nav {
-        display: none;
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .contact-card p {
+      max-width: 520px;
+      margin-bottom: 0;
+      color: var(--ink-soft);
+    }
+
+    .panel-controls {
+      position: fixed;
+      right: 30px;
+      bottom: 22px;
+      z-index: 30;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .panel-controls button {
+      display: grid;
+      width: 46px;
+      height: 46px;
+      place-items: center;
+      color: var(--ink);
+      background: rgba(8, 16, 24, 0.78);
+      border: 1px solid var(--line-bright);
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 20px;
+      backdrop-filter: blur(12px);
+    }
+
+    .panel-controls button:disabled {
+      cursor: not-allowed;
+      opacity: 0.32;
+    }
+
+    .progress-track {
+      position: fixed;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: 30;
+      height: 3px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .progress-bar {
+      width: 25%;
+      height: 100%;
+      background: linear-gradient(90deg, var(--blue), var(--orange));
+      transition: width 220ms ease;
+    }
+
+    @media (max-width: 1180px) {
+      .home-layout {
+        grid-template-columns: minmax(0, 1fr) minmax(280px, 0.45fr);
+        gap: 34px;
       }
 
-      .hero-copy {
-        width: 72%;
+      .work-layout {
+        grid-template-columns: 1fr;
       }
 
-      .profile-stamp {
-        width: 180px;
+      .work-statement {
+        min-height: 240px;
       }
 
-      .experience-card {
-        grid-template-columns: 90px minmax(0, 1fr);
+      .statement span {
+        display: inline;
       }
 
-      .experience-meta {
-        grid-column: 2;
-        padding-top: 14px;
-        padding-left: 0;
-        border-top: 2px dashed var(--line-soft);
-        border-left: 0;
+      .research-layout,
+      .profile-layout {
+        grid-template-columns: 1fr;
       }
 
-      .project-card,
-      .project-card:first-child,
-      .project-card:nth-child(2) {
-        grid-column: span 6;
+      .research-intro {
+        position: static;
       }
     }
 
-    @media (max-width: 700px) {
-      .page {
-        width: min(var(--max-width), calc(100% - 24px));
-        padding-top: 12px;
+    @media (max-width: 820px) {
+      :root {
+        --header-height: 58px;
       }
 
       .topbar {
         top: 8px;
-        padding-left: 10px;
+        right: 10px;
+        left: 10px;
+        grid-template-columns: 1fr auto;
       }
 
       .brand > span:last-child,
-      .button.contact-button {
+      .top-nav,
+      .panel-count {
         display: none;
       }
 
-      .hero {
-        min-height: 760px;
-        background-position: 66% center;
+      .panel {
+        padding: 92px 20px 76px;
       }
 
-      .hero::before,
-      [data-theme="evening"] .hero::before {
-        background: linear-gradient(to bottom, rgba(239, 249, 255, 0.92), rgba(239, 249, 255, 0.64) 56%, rgba(239, 249, 255, 0.1));
-      }
-
-      [data-theme="evening"] .hero::before {
-        background: linear-gradient(to bottom, rgba(16, 37, 53, 0.92), rgba(16, 37, 53, 0.65) 56%, rgba(16, 37, 53, 0.15));
-      }
-
-      .hero-copy {
-        width: 100%;
-        min-height: 470px;
-        justify-content: flex-start;
-        padding: 44px 22px;
+      .home-layout {
+        grid-template-columns: 1fr;
       }
 
       h1 {
-        font-size: clamp(54px, 19vw, 86px);
+        font-size: clamp(68px, 20vw, 108px);
       }
 
-      .profile-stamp {
-        right: 22px;
-        bottom: 22px;
-        width: 155px;
+      .portrait {
+        width: min(88vw, 390px);
       }
 
-      .profile-stamp strong {
-        font-size: 17px;
-      }
-
-      .focus-strip {
-        grid-template-columns: 1fr;
-        margin-bottom: 66px;
+      .portrait img {
+        max-height: none;
       }
 
       .section-heading {
+        display: block;
+      }
+
+      .section-note {
+        margin-top: 18px;
+        text-align: left;
+      }
+
+      .work-cards,
+      .profile-grid {
         grid-template-columns: 1fr;
-        gap: 14px;
       }
 
-      .experience-card {
-        grid-template-columns: 56px minmax(0, 1fr);
-        gap: 14px;
-        padding: 22px 18px;
+      .work-card {
+        min-height: 390px;
       }
 
-      .chapter-number {
-        font-size: 46px;
-        -webkit-text-stroke-width: 1px;
+      .info-card.wide {
+        grid-column: auto;
       }
 
-      .project-card,
-      .project-card:first-child,
-      .project-card:nth-child(2) {
-        grid-column: 1 / -1;
-        min-height: 350px;
+      .research-card {
+        grid-template-columns: 58px minmax(0, 1fr);
+        gap: 15px;
       }
 
-      .profile-grid,
+      .research-number {
+        font-size: 42px;
+      }
+
       .contact-card {
-        grid-template-columns: 1fr;
-      }
-
-      .contact-card .button {
-        justify-self: start;
-      }
-
-      footer {
+        align-items: flex-start;
         flex-direction: column;
+      }
+
+      .edge-note {
+        display: none;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      html {
+      html,
+      .scroller {
         scroll-behavior: auto;
       }
 
       *,
       *::before,
       *::after {
-        scroll-behavior: auto !important;
         transition-duration: 0.01ms !important;
-      }
-    }
-
-    @media print {
-      :root {
-        --sky: #fff;
-        --paper: #fff;
-        --paper-soft: #fff;
-        --ink: #111;
-        --ink-soft: #333;
-        --line: #111;
-        --line-soft: #bbb;
-      }
-
-      .topbar,
-      .focus-strip,
-      .contact-card,
-      footer {
-        display: none;
-      }
-
-      .page {
-        width: 100%;
-        padding: 0;
-      }
-
-      .hero,
-      .experience-card,
-      .project-card,
-      .info-card {
-        break-inside: avoid;
-        box-shadow: none;
       }
     }
   </style>
@@ -873,191 +870,161 @@
       "@type": "CollegeOrUniversity",
       "name": "University of Michigan"
     },
-    "alumniOf": {
-      "@type": "CollegeOrUniversity",
-      "name": "University of Michigan"
-    },
     "sameAs": ["https://github.com/Rhongomyniadz"],
-    "knowsAbout": [
-      "Computational Argumentation",
-      "Natural Language Processing",
-      "Embodied AI",
-      "Robot Learning",
-      "Machine Learning Systems"
-    ]
+    "knowsAbout": ["Computational Argumentation", "Natural Language Processing", "Embodied AI", "Robot Learning", "Interface Systems"]
   }
   </script>
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <div class="page" id="top">
-    <header class="topbar">
-      <a class="brand" href="#top" aria-label="Back to top">
-        <span class="brand-mark">ZZ</span>
-        <span>Zichen Zhang</span>
-      </a>
-      <nav class="nav" aria-label="Page sections">
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#profile">Profile</a>
-      </nav>
-      <div class="actions">
-        <button class="button secondary" id="theme-toggle" type="button">Evening</button>
-        <a class="button contact-button" href="mailto:edenzha@umich.edu">Contact ↗</a>
-      </div>
-    </header>
+  <a class="skip-link" href="#home">Skip to content</a>
 
-    <main id="main">
-      <section class="hero" aria-labelledby="hero-title">
-        <div class="hero-copy">
-          <p class="issue-label">Portfolio issue 01 · 2026</p>
-          <h1 id="hero-title">Zichen <span>Zhang.</span></h1>
-          <p class="hero-intro">I build systems that make hidden structure visible—from assumptions inside a conversation to the belief state of an embodied agent.</p>
-          <div class="hero-links" aria-label="Profile links">
-            <a class="button" href="#experience">Explore my work ↓</a>
+  <header class="topbar">
+    <button class="brand" type="button" data-go="0" aria-label="Go to introduction">
+      <span class="brand-mark">ZZ</span>
+      <span>Zichen Zhang</span>
+    </button>
+    <nav class="top-nav" aria-label="Portfolio chapters">
+      <button class="active" type="button" data-go="0">Intro</button>
+      <button type="button" data-go="1">Selected work</button>
+      <button type="button" data-go="2">Research</button>
+      <button type="button" data-go="3">Profile</button>
+    </nav>
+    <div class="top-actions">
+      <span class="panel-count"><span id="current-panel">01</span> / 04</span>
+      <a class="contact-link" href="mailto:edenzha@umich.edu">Contact ↗</a>
+    </div>
+  </header>
+
+  <main class="scroller" id="scroller">
+    <section class="panel" id="home" aria-labelledby="home-title">
+      <div class="panel-inner home-layout">
+        <div class="home-copy">
+          <p class="eyebrow">Researcher · Engineer · Builder</p>
+          <h1 id="home-title">Zichen <span>Zhang</span></h1>
+          <p class="home-intro">I build systems that make hidden structure visible—from assumptions inside a conversation to the belief state of an embodied agent.</p>
+          <div class="home-links">
+            <button class="button" type="button" data-go="1">Explore selected work →</button>
             <a class="button secondary" href="https://github.com/Rhongomyniadz" target="_blank" rel="noreferrer">GitHub ↗</a>
             <a class="button secondary" href="./Resume.pdf" target="_blank" rel="noreferrer">Résumé ↗</a>
           </div>
         </div>
-        <div class="profile-stamp">
-          <img src="./me.png" alt="Zichen Zhang at the Pyramid of the Sun in Teotihuacan" width="1280" height="1706">
-          <strong>Zichen “Eden” Zhang</strong>
-          <span>MS CS&amp;E · UMich</span>
-        </div>
-      </section>
 
-      <div class="focus-strip" aria-label="Current focus">
-        <div><span>Focus 01</span><strong>Argument flow</strong></div>
-        <div><span>Focus 02</span><strong>Embodied memory</strong></div>
-        <div><span>Focus 03</span><strong>Interface engineering</strong></div>
+        <figure class="portrait">
+          <img src="./me.png" alt="Zichen Zhang standing in front of the Pyramid of the Sun at Teotihuacan" width="1280" height="1706">
+          <figcaption>
+            <strong>Zichen “Eden” Zhang</strong>
+            <span>MS CS&amp;E · University of Michigan</span>
+          </figcaption>
+        </figure>
       </div>
+      <span class="edge-note">Scroll to continue ↓</span>
+    </section>
 
-      <section class="section" id="experience" aria-labelledby="experience-title">
+    <section class="panel" id="work" aria-labelledby="work-title">
+      <div class="panel-inner">
         <div class="section-heading">
           <div>
-            <p class="section-kicker">Chapter 01 / Experience</p>
-            <h2 id="experience-title">Current work.</h2>
+            <p class="eyebrow">01 / Selected work</p>
+            <h2 id="work-title">Projects</h2>
           </div>
-          <p class="section-note">Language research, embodied intelligence, and product-facing engineering—each grounded in reproducible systems.</p>
+          <p class="section-note">Three current threads spanning language research, embodied intelligence, and interface engineering.</p>
         </div>
 
-        <div class="experience-list">
-          <article class="experience-card">
-            <div class="chapter-number" aria-hidden="true">01</div>
-            <div class="experience-main">
-              <h3>Flow of Argument</h3>
-              <p class="role">Computational Argumentation Research</p>
-              <ul>
-                <li>Built an end-to-end SPORC pipeline for extracting and labeling stance, turn type, conversation moves, entailment, assumptions, and Gricean maxim violations with GPU-backed LLM inference.</li>
-                <li>Designed paper-facing analyses of relevance bridges, the assumption “iceberg,” implicature flow, processing load, repair cascades, and social-power dynamics.</li>
-                <li>Developed reproducible local and Slurm workflows with patch-safe merges, robustness checks, evaluation summaries, and publication-ready visualizations.</li>
-              </ul>
-            </div>
-            <div class="experience-meta">2024—Present<br>Python · vLLM<br>SPORC · Slurm</div>
-          </article>
+        <div class="work-layout">
+          <div class="work-cards">
+            <article class="work-card">
+              <div class="card-art"><strong>Argument</strong></div>
+              <div class="card-body">
+                <p class="project-code">Python · vLLM · SPORC · Slurm</p>
+                <h3>Flow of Argument</h3>
+                <p>LLM-assisted pipelines and paper-facing experiments for assumptions, implicature flow, conversational repair, and social enforcement in long-form podcast discussions.</p>
+                <a class="card-link" href="https://github.com/Rhongomyniadz/flow_of_argument" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
+            </article>
 
-          <article class="experience-card">
-            <div class="chapter-number" aria-hidden="true">02</div>
-            <div class="experience-main">
-              <h3>Embodied AI Research Projects</h3>
-              <p class="role">StateBridge &amp; Compositional Robot Manipulation</p>
-              <ul>
-                <li>Designed StateBridge: an object-centric, uncertainty-aware belief-state bottleneck for preserving task-relevant facts after they leave an embodied agent’s field of view.</li>
-                <li>Specified a TEACh EDH evaluation path spanning hidden-state recovery, controlled partial-observability tests, next-action prediction, and closed-loop task execution.</li>
-                <li>Developed a factorized ManiSkill 3 research plan comparing BC, ACT, Diffusion Policy, and object-centric ACT, with a primary study of failure-guided demonstration collection.</li>
-              </ul>
-            </div>
-            <div class="experience-meta">2026—Present<br>TEACh · ManiSkill 3<br>Robot learning</div>
-          </article>
+            <article class="work-card">
+              <div class="card-art"><strong>Memory</strong></div>
+              <div class="card-body">
+                <p class="project-code">TEACh · ManiSkill 3 · PyTorch</p>
+                <h3>Embodied AI Research</h3>
+                <p>StateBridge studies object-centric belief states under partial observability; a parallel ManiSkill project tests compositional generalization and failure-guided data collection.</p>
+                <button class="card-link" type="button" data-go="2">Research details →</button>
+              </div>
+            </article>
 
-          <article class="experience-card">
-            <div class="chapter-number" aria-hidden="true">03</div>
-            <div class="experience-main">
-              <h3>dsh Aemeath Skin</h3>
-              <p class="role">Open-source Interface Engineering</p>
-              <ul>
-                <li>Created a hot-pluggable Aemeath-inspired skin for the DeepSeek Harness Web GUI, covering chat, sidebar, composer, workspace rows, and session states.</li>
-                <li>Implemented responsive light and dark themes, custom artwork integration, and a complete skin package with metadata and Cordis patch wiring.</li>
-                <li>Built a deterministic, dependency-free asset pipeline that regenerates the distributable client bundle from source CSS, JavaScript, and WebP assets.</li>
-              </ul>
-            </div>
-            <div class="experience-meta">2026<br>CSS · ESM<br>Plugin systems</div>
-          </article>
-        </div>
-      </section>
-
-      <section class="section" id="projects" aria-labelledby="projects-title">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">Chapter 02 / Selected Projects</p>
-            <h2 id="projects-title">Systems with a point of view.</h2>
+            <article class="work-card">
+              <div class="card-art"><strong>Interface</strong></div>
+              <div class="card-body">
+                <p class="project-code">CSS · ESM · Plugin systems</p>
+                <h3>dsh Aemeath Skin</h3>
+                <p>A hot-pluggable DeepSeek Harness Web GUI skin with responsive light and dark surfaces, custom asset integration, package wiring, and a deterministic build.</p>
+                <a class="card-link" href="https://github.com/Rhongomyniadz/dsh-aemeath-skin" target="_blank" rel="noreferrer">GitHub ↗</a>
+              </div>
+            </article>
           </div>
-          <p class="section-note">Research infrastructure and interface work shaped around concrete, testable questions.</p>
+
+          <aside class="work-statement" aria-label="Portfolio focus">
+            <p class="eyebrow">Research practice</p>
+            <p class="statement">Language, <span>agents &amp;</span> interface craft.</p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="research" aria-labelledby="research-title">
+      <div class="panel-inner research-layout">
+        <div class="research-intro">
+          <p class="eyebrow">02 / Research</p>
+          <h2 class="research-title" id="research-title">Inside <span>the work.</span></h2>
+          <p>My current research asks how intelligent systems represent what is implied, remembered, and actionable.</p>
         </div>
 
-        <div class="project-grid">
-          <article class="project-card">
-            <p class="project-code">P-01 · Language systems</p>
-            <h3>Modeling argument flow in podcast discussions</h3>
-            <p>An ACL-oriented repository that turns long-form, multi-speaker conversations into testable signals about implicit assumptions, pragmatic violations, response dynamics, and social enforcement.</p>
-            <div class="project-foot">
-              <span class="tag">7 analysis tracks</span>
-              <span class="tag">LLM labeling</span>
-              <span class="tag">representation baselines</span>
-              <span class="tag">statistical modeling</span>
-            </div>
-            <a class="project-link" href="https://github.com/Rhongomyniadz/flow_of_argument" target="_blank" rel="noreferrer" aria-label="Open Flow of Argument on GitHub">↗</a>
-          </article>
-
-          <article class="project-card">
-            <p class="project-code">P-02 · Embodied intelligence</p>
-            <h3>StateBridge</h3>
-            <p>A research program for learning compact object-centric memory under partial observability, beginning with offline TEACh EDH and advancing toward controlled and closed-loop evaluation.</p>
-            <div class="project-foot">
-              <span class="tag">belief state</span>
-              <span class="tag">TEACh EDH</span>
-              <span class="tag">object memory</span>
+        <div class="research-list">
+          <article class="research-card">
+            <div class="research-number">01</div>
+            <div>
+              <h3>Computational argumentation</h3>
+              <p>Built an end-to-end SPORC pipeline for stance, turn type, conversation moves, entailment, assumptions, and Gricean maxim violations with GPU-backed LLM inference. Designed analyses of relevance bridges, the assumption “iceberg,” implicature flow, processing load, repair cascades, and social-power dynamics.</p>
             </div>
           </article>
 
-          <article class="project-card">
-            <p class="project-code">P-03 · Interface craft</p>
-            <h3>Aemeath for DeepSeek Harness</h3>
-            <p>A full visual skin translated into usable product UI: two themes, responsive surfaces, custom artwork, package wiring, and a repeatable build.</p>
-            <div class="project-foot">
-              <span class="tag">design systems</span>
-              <span class="tag">CSS</span>
-              <span class="tag">ESM</span>
-              <span class="tag">WebP assets</span>
+          <article class="research-card">
+            <div class="research-number">02</div>
+            <div>
+              <h3>StateBridge</h3>
+              <p>Designed an object-centric, uncertainty-aware belief-state bottleneck for preserving task-relevant facts after they leave an embodied agent’s field of view, with a TEACh EDH protocol spanning hidden-state recovery, interventions, next-action prediction, and closed-loop execution.</p>
             </div>
-            <a class="project-link" href="https://github.com/Rhongomyniadz/dsh-aemeath-skin" target="_blank" rel="noreferrer" aria-label="Open Aemeath skin on GitHub">↗</a>
           </article>
 
-          <article class="project-card">
-            <p class="project-code">P-04 · Robot learning</p>
-            <h3>Compositional generalization in manipulation</h3>
-            <p>A factorized four-task Panda benchmark for testing multi-task visuomotor policies, isolated OOD factors, object-centric representations, and failure-guided data collection.</p>
-            <div class="project-foot">
-              <span class="tag">ManiSkill 3</span>
-              <span class="tag">ACT</span>
-              <span class="tag">Diffusion Policy</span>
-              <span class="tag">OOD evaluation</span>
+          <article class="research-card">
+            <div class="research-number">03</div>
+            <div>
+              <h3>Compositional robot manipulation</h3>
+              <p>Developed a factorized ManiSkill 3 research plan comparing behavior cloning, ACT, Diffusion Policy, and object-centric ACT across isolated OOD factors, with a primary controlled study of failure-guided demonstration collection.</p>
+            </div>
+          </article>
+
+          <article class="research-card">
+            <div class="research-number">04</div>
+            <div>
+              <h3>Reproducible research systems</h3>
+              <p>Built local and Slurm workflows with patch-safe merges, data-leakage controls, robustness specifications, evaluation summaries, and publication-ready visualizations.</p>
             </div>
           </article>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <section class="section" id="profile" aria-labelledby="profile-title">
-        <div class="section-heading">
-          <div>
-            <p class="section-kicker">Chapter 03 / Profile</p>
-            <h2 id="profile-title">Training &amp; toolkit.</h2>
-          </div>
-          <p class="section-note">A foundation in data science and computer science, now focused on language, agents, and research systems.</p>
+    <section class="panel" id="profile" aria-labelledby="profile-title">
+      <div class="panel-inner profile-layout">
+        <div class="profile-heading">
+          <p class="eyebrow">03 / Profile</p>
+          <h2 id="profile-title">Training &amp; toolkit.</h2>
+          <p>A foundation in data science and computer science, now focused on language, embodied agents, robot learning, and the systems that make research reproducible.</p>
         </div>
 
         <div class="profile-grid">
-          <article class="info-card">
+          <article class="info-card wide">
             <h3>Education</h3>
             <div class="education-item">
               <strong>University of Michigan — M.S. Computer Science &amp; Engineering (SUGS)</strong>
@@ -1071,7 +1038,7 @@
 
           <article class="info-card">
             <h3>Toolkit</h3>
-            <div class="skill-cloud">
+            <div class="tags">
               <span class="tag">Python</span>
               <span class="tag">PyTorch</span>
               <span class="tag">vLLM</span>
@@ -1079,58 +1046,91 @@
               <span class="tag">Embodied AI</span>
               <span class="tag">Robot learning</span>
               <span class="tag">Slurm</span>
-              <span class="tag">Statistical analysis</span>
+              <span class="tag">Statistics</span>
               <span class="tag">JavaScript</span>
               <span class="tag">CSS</span>
               <span class="tag">Git</span>
               <span class="tag">Linux</span>
             </div>
           </article>
-        </div>
-      </section>
 
-      <section class="section contact-card" id="contact" aria-labelledby="contact-title">
-        <div>
-          <p class="section-kicker">Chapter 04 / Contact</p>
-          <h2 id="contact-title">Let’s build the next system.</h2>
-          <p>I’m interested in research and engineering collaborations around language, embodied agents, and thoughtful AI interfaces.</p>
+          <article class="info-card contact-card">
+            <div>
+              <h3>Let’s build.</h3>
+              <p>I’m interested in research and engineering collaborations around language, embodied agents, and thoughtful AI interfaces.</p>
+            </div>
+            <a class="button" href="mailto:edenzha@umich.edu">Email ↗</a>
+          </article>
         </div>
-        <a class="button" href="mailto:edenzha@umich.edu">edenzha@umich.edu ↗</a>
-      </section>
-    </main>
+      </div>
+    </section>
+  </main>
 
-    <footer>
-      <span>© <span id="year"></span> Zichen Zhang</span>
-      <span>Designed &amp; built for GitHub Pages</span>
-    </footer>
+  <div class="panel-controls" aria-label="Panel navigation">
+    <button id="previous-panel" type="button" aria-label="Previous section">↑</button>
+    <button id="next-panel" type="button" aria-label="Next section">↓</button>
   </div>
+  <div class="progress-track" aria-hidden="true"><div class="progress-bar" id="progress-bar"></div></div>
 
   <script>
-    const themeKey = "zz-theme";
-    const root = document.documentElement;
-    const themeButton = document.getElementById("theme-toggle");
+    const scroller = document.getElementById("scroller");
+    const panels = Array.from(document.querySelectorAll(".panel"));
+    const navigationButtons = Array.from(document.querySelectorAll("[data-go]"));
+    const topNavigationButtons = Array.from(document.querySelectorAll(".top-nav [data-go]"));
+    const previousButton = document.getElementById("previous-panel");
+    const nextButton = document.getElementById("next-panel");
+    const panelCounter = document.getElementById("current-panel");
+    const progressBar = document.getElementById("progress-bar");
+    let activePanel = 0;
 
-    function savedTheme() {
-      const value = localStorage.getItem(themeKey);
-      return value === "evening" ? "evening" : "day";
+    function clampPanel(index) {
+      return Math.min(Math.max(index, 0), panels.length - 1);
     }
 
-    function applyTheme(theme) {
-      root.dataset.theme = theme;
-      const isEvening = theme === "evening";
-      themeButton.textContent = isEvening ? "Daylight" : "Evening";
-      themeButton.setAttribute("aria-label", isEvening ? "Switch to daylight theme" : "Switch to evening theme");
+    function goToPanel(index) {
+      const targetIndex = clampPanel(index);
+      panels[targetIndex].scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
     }
 
-    function toggleTheme() {
-      const nextTheme = root.dataset.theme === "evening" ? "day" : "evening";
-      localStorage.setItem(themeKey, nextTheme);
-      applyTheme(nextTheme);
+    function updateNavigation(index) {
+      activePanel = clampPanel(index);
+      panelCounter.textContent = String(activePanel + 1).padStart(2, "0");
+      progressBar.style.width = `${((activePanel + 1) / panels.length) * 100}%`;
+      previousButton.disabled = activePanel === 0;
+      nextButton.disabled = activePanel === panels.length - 1;
+      topNavigationButtons.forEach((button) => {
+        button.classList.toggle("active", Number(button.dataset.go) === activePanel);
+      });
     }
 
-    applyTheme(savedTheme());
-    themeButton.addEventListener("click", toggleTheme);
-    document.getElementById("year").textContent = String(new Date().getFullYear());
+    navigationButtons.forEach((button) => {
+      button.addEventListener("click", () => goToPanel(Number(button.dataset.go)));
+    });
+
+    previousButton.addEventListener("click", () => goToPanel(activePanel - 1));
+    nextButton.addEventListener("click", () => goToPanel(activePanel + 1));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "ArrowDown" || event.key === "PageDown") {
+        event.preventDefault();
+        goToPanel(activePanel + 1);
+      }
+      if (event.key === "ArrowUp" || event.key === "PageUp") {
+        event.preventDefault();
+        goToPanel(activePanel - 1);
+      }
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          updateNavigation(panels.indexOf(entry.target));
+        }
+      });
+    }, { root: null, rootMargin: "-35% 0px -55% 0px", threshold: 0 });
+
+    panels.forEach((panel) => observer.observe(panel));
+    updateNavigation(0);
   </script>
 </body>
 </html>
